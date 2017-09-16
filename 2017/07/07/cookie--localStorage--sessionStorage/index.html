@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="技术,JavaScript,高级," />
+  <meta name="keywords" content="技术,JavaScript,cookie--localStorage--sessionStorage," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)&amp;lt;a href=&amp;quot;01-复习.html&amp;quot; onclick=&amp;quot;alert(&amp;apos;哈哈哈&amp;apos;);return false;&amp;quot;&amp;gt;跳转1&amp;lt;/a&amp;gt;  &amp;lt;a href=&amp;quot;01-复习.html&amp;quot;">
-<meta name="keywords" content="技术,JavaScript,高级">
+<meta name="description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
+<meta name="keywords" content="技术,JavaScript,cookie--localStorage--sessionStorage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ls-blog">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/JavaScript/index.html">
+<meta property="og:title" content="cookie--localStorage--sessionStorage">
+<meta property="og:url" content="http://yoursite.com/2017/07/07/cookie--localStorage--sessionStorage/index.html">
 <meta property="og:site_name" content="ls-blog">
-<meta property="og:description" content="一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)&amp;lt;a href=&amp;quot;01-复习.html&amp;quot; onclick=&amp;quot;alert(&amp;apos;哈哈哈&amp;apos;);return false;&amp;quot;&amp;gt;跳转1&amp;lt;/a&amp;gt;  &amp;lt;a href=&amp;quot;01-复习.html&amp;quot;">
-<meta property="og:updated_time" content="2017-09-16T15:02:26.371Z">
+<meta property="og:description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
+<meta property="og:updated_time" content="2017-09-16T15:33:13.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ls-blog">
-<meta name="twitter:description" content="一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)&amp;lt;a href=&amp;quot;01-复习.html&amp;quot; onclick=&amp;quot;alert(&amp;apos;哈哈哈&amp;apos;);return false;&amp;quot;&amp;gt;跳转1&amp;lt;/a&amp;gt;  &amp;lt;a href=&amp;quot;01-复习.html&amp;quot;">
+<meta name="twitter:title" content="cookie--localStorage--sessionStorage">
+<meta name="twitter:description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/07/JavaScript/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/07/cookie--localStorage--sessionStorage/"/>
 
 
 
 
 
-  <title>ls-blog | ls-blog</title>
+  <title>cookie--localStorage--sessionStorage | ls-blog</title>
   
 
 
@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/JavaScript/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/cookie--localStorage--sessionStorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lisha">
@@ -255,7 +255,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ls-blog</h1>
+          <h1 class="post-title" itemprop="name headline">cookie--localStorage--sessionStorage</h1>
         
 
         <div class="post-meta">
@@ -267,8 +267,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T11:03:14+08:00">
-                2017-09-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T11:03:14+08:00">
+                2017-07-07
               </time>
             
 
@@ -338,32 +338,73 @@
       
 
       
-        <h4 id="一、阻止a标签跳转的几种方式-有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理"><a href="#一、阻止a标签跳转的几种方式-有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理" class="headerlink" title="一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)"></a>一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)</h4><pre><code>&lt;a href=&quot;01-复习.html&quot; onclick=&quot;alert(&apos;哈哈哈&apos;);return false;&quot;&gt;跳转1&lt;/a&gt;
+        <h2 id="一、cookie"><a href="#一、cookie" class="headerlink" title="一、cookie"></a>一、cookie</h2><pre><code>1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了
 
-&lt;a href=&quot;01-复习.html&quot; onclick=&quot;test2();return false;&quot;&gt;跳转2&lt;/a&gt;
-        function test2(){
-            alert(&quot;哈哈&quot;);
-          }
+2.原生JS
+    1.设置cookie
+        document.cookie=&quot;id=666&quot;;
+    2.获取当前回话cookie值
+        console.log(document.cookie);
+    3.cookie也可以长期保存
+        document.cookie=&quot;age=18;expires=&quot;+new Date(&quot;2017-09-12 08:00:00&quot;);
 
-&lt;a href=&quot;01-复习.html&quot; onclick=&quot;return test3();&quot;&gt;跳转3&lt;/a&gt;
-         function test3(){
-            alert(&quot;呵呵&quot;);
-            return false;
-          }
+3.jquery.cookie.js
+    1.设置cookie
+        $.cookie(&quot;gender&quot;,&quot;男&quot;)
+    2.获取当前回话cookie值
+        console.log($.cookie(&quot;gender&quot;));
+    3.设置一个长期cookie
+        $.cookie(&quot;email&quot;,&quot;abc@qq.com&quot;,{
+            //expires的值可以是一个Date类型的对象，也可以是一个以天为单位的数字
+            expires:0.5
+        });
+    4.移除一个cookie
+         $.removeCookie(&quot;gender&quot;);
+ 4.封装cookie函数
 
-&lt;a href=&quot;01-复习.html&quot; id=&quot;link4&quot;&gt;跳转4&lt;/a&gt;
-          var link4 = document.getElementById(&quot;link4&quot;);
-          link4.onclick = function () {
-            alert(&quot;嘿嘿&quot;);
-            return false;
-          }
+     1.函数封装一
+        function getCookieValue(key) {
+            var result;
+            var arr = document.cookie.split(&quot;; &quot;);
+            arr.forEach(function (value){
+                var keyValues = value.split(&quot;=&quot;);
+                if (keyValues[0] == key) {
+                    result = keyValues[1];
+                }
+            });
+            return ressult;
+        }
+    2.函数封装二
+          function getCookieValue(key){
+            var result;
+            var arr=document.cookie.split(&quot;; &quot;);//[&quot;id=666&quot;,&quot;cname=abc&quot;,&quot;name=ccc&quot;,&quot;name3=ddd&quot;]
+            arr.forEach(function(value){       
+                var keyValues=value.split(&quot;=&quot;); 
+                if(keyValues[0]==key){
+                    result=keyValues[1];
+                }
+            });
+            return result;
+        }
 
-&lt;a href=&quot;javascript:void(0);&quot; id=&quot;link5&quot;&gt;跳转5&lt;/a&gt;
-        var link5 = document.getElementById(&quot;link5&quot;);
-          link5.onclick = function () {
-            alert(&quot;嘻嘻&quot;);
-          }
-</code></pre>
+5.cookie可以实现跨页面传值：但必须要在同一个域名下面的不同页面
+</code></pre><h2 id="跨页面传值"><a href="#跨页面传值" class="headerlink" title="跨页面传值"></a>跨页面传值</h2><pre><code>1.get请求的参数
+    页面跳转，传递的参数作为URL路劲的一部分
+        location.href=&quot;index.html?id=666&amp;age=18&quot;;
+    在目标页面，通过location.search找到参数
+        location.search--&gt;&quot;?id=666&amp;age=18&quot;
+2.h5中新增了本地存储技术：localStorage/sessionStorage
+    sessionStorage是会话级的存储时间  / localStorage永久存储
+    存储数据：localStorage.setItem(&quot;键&quot;,&quot;值&quot;)
+    所有的值都应该是一个字符串类型的值，如果不是字符串类型，方法内部会把该值转换为字符串类型存储
+3.cookie
+4.服务器端：session
+对象的序列化和反序列化
+</code></pre><ul>
+<li>JSON.stringify(对象)：将一个对象序列化为一个json数据</li>
+<li>JSON.parse(“json数据”)：将一个json数据转化为一个对象</li>
+</ul>
+
       
     </div>
     
@@ -384,7 +425,7 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/高级/" rel="tag"># 高级</a>
+            <a href="/tags/cookie-localStorage-sessionStorage/" rel="tag"># cookie--localStorage--sessionStorage</a>
           
         </div>
       
@@ -397,18 +438,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/07/jq/" rel="prev" title="jq">
-                jq <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/07/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、阻止a标签跳转的几种方式-有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理"><span class="nav-number">1.</span> <span class="nav-text">一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、cookie"><span class="nav-number">1.</span> <span class="nav-text">一、cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨页面传值"><span class="nav-number">2.</span> <span class="nav-text">跨页面传值</span></a></li></ol></div>
             
 
           </div>

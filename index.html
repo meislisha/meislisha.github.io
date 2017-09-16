@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -263,7 +263,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-16T21:38:56+08:00">
                 2017-09-16
@@ -284,7 +284,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -295,7 +295,7 @@
 
                 
                 
-                  . 
+                  , 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -540,7 +540,7 @@ CommonJS规范：nodeJS
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/07/jq/" itemprop="url">jq.md</a></h1>
+                <a class="post-title-link" href="/2017/09/07/jq/" itemprop="url">jq</a></h1>
         
 
         <div class="post-meta">
@@ -550,7 +550,7 @@ CommonJS规范：nodeJS
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T21:19:01+08:00">
                 2017-09-07
@@ -571,7 +571,7 @@ CommonJS规范：nodeJS
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -582,7 +582,7 @@ CommonJS规范：nodeJS
 
                 
                 
-                  . 
+                  , 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -807,7 +807,7 @@ CommonJS规范：nodeJS
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T11:03:14+08:00">
                 2017-09-07
@@ -828,7 +828,7 @@ CommonJS规范：nodeJS
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -839,7 +839,7 @@ CommonJS规范：nodeJS
 
                 
                 
-                  . 
+                  , 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -882,7 +882,32 @@ CommonJS规范：nodeJS
       
         
           
-            <h4 id="一、举例"><a href="#一、举例" class="headerlink" title="一、举例"></a>一、举例</h4>
+            <h4 id="一、阻止a标签跳转的几种方式-有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理"><a href="#一、阻止a标签跳转的几种方式-有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理" class="headerlink" title="一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)"></a>一、阻止a标签跳转的几种方式(有些时候仅仅是拿到链接的样式，点击a标签要做什么，这个放在a标签的单击事件中去处理)</h4><pre><code>&lt;a href=&quot;01-复习.html&quot; onclick=&quot;alert(&apos;哈哈哈&apos;);return false;&quot;&gt;跳转1&lt;/a&gt;
+
+&lt;a href=&quot;01-复习.html&quot; onclick=&quot;test2();return false;&quot;&gt;跳转2&lt;/a&gt;
+        function test2(){
+            alert(&quot;哈哈&quot;);
+          }
+
+&lt;a href=&quot;01-复习.html&quot; onclick=&quot;return test3();&quot;&gt;跳转3&lt;/a&gt;
+         function test3(){
+            alert(&quot;呵呵&quot;);
+            return false;
+          }
+
+&lt;a href=&quot;01-复习.html&quot; id=&quot;link4&quot;&gt;跳转4&lt;/a&gt;
+          var link4 = document.getElementById(&quot;link4&quot;);
+          link4.onclick = function () {
+            alert(&quot;嘿嘿&quot;);
+            return false;
+          }
+
+&lt;a href=&quot;javascript:void(0);&quot; id=&quot;link5&quot;&gt;跳转5&lt;/a&gt;
+        var link5 = document.getElementById(&quot;link5&quot;);
+          link5.onclick = function () {
+            alert(&quot;嘻嘻&quot;);
+          }
+</code></pre>
           
         
       
@@ -959,7 +984,7 @@ CommonJS规范：nodeJS
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T10:20:48+08:00">
                 2017-09-07
@@ -1045,6 +1070,224 @@ CommonJS规范：nodeJS
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/cookie--localStorage--sessionStorage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lisha">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img3.duitang.com/uploads/item/201405/24/20140524130307_Wv8Bv.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ls-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/07/cookie--localStorage--sessionStorage/" itemprop="url">cookie--localStorage--sessionStorage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-07T11:03:14+08:00">
+                2017-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/javasCript/" itemprop="url" rel="index">
+                    <span itemprop="name">javasCript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、cookie"><a href="#一、cookie" class="headerlink" title="一、cookie"></a>一、cookie</h2><pre><code>1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了
+
+2.原生JS
+    1.设置cookie
+        document.cookie=&quot;id=666&quot;;
+    2.获取当前回话cookie值
+        console.log(document.cookie);
+    3.cookie也可以长期保存
+        document.cookie=&quot;age=18;expires=&quot;+new Date(&quot;2017-09-12 08:00:00&quot;);
+
+3.jquery.cookie.js
+    1.设置cookie
+        $.cookie(&quot;gender&quot;,&quot;男&quot;)
+    2.获取当前回话cookie值
+        console.log($.cookie(&quot;gender&quot;));
+    3.设置一个长期cookie
+        $.cookie(&quot;email&quot;,&quot;abc@qq.com&quot;,{
+            //expires的值可以是一个Date类型的对象，也可以是一个以天为单位的数字
+            expires:0.5
+        });
+    4.移除一个cookie
+         $.removeCookie(&quot;gender&quot;);
+ 4.封装cookie函数
+
+     1.函数封装一
+        function getCookieValue(key) {
+            var result;
+            var arr = document.cookie.split(&quot;; &quot;);
+            arr.forEach(function (value){
+                var keyValues = value.split(&quot;=&quot;);
+                if (keyValues[0] == key) {
+                    result = keyValues[1];
+                }
+            });
+            return ressult;
+        }
+    2.函数封装二
+          function getCookieValue(key){
+            var result;
+            var arr=document.cookie.split(&quot;; &quot;);//[&quot;id=666&quot;,&quot;cname=abc&quot;,&quot;name=ccc&quot;,&quot;name3=ddd&quot;]
+            arr.forEach(function(value){       
+                var keyValues=value.split(&quot;=&quot;); 
+                if(keyValues[0]==key){
+                    result=keyValues[1];
+                }
+            });
+            return result;
+        }
+
+5.cookie可以实现跨页面传值：但必须要在同一个域名下面的不同页面
+</code></pre><h2 id="跨页面传值"><a href="#跨页面传值" class="headerlink" title="跨页面传值"></a>跨页面传值</h2><pre><code>1.get请求的参数
+    页面跳转，传递的参数作为URL路劲的一部分
+        location.href=&quot;index.html?id=666&amp;age=18&quot;;
+    在目标页面，通过location.search找到参数
+        location.search--&gt;&quot;?id=666&amp;age=18&quot;
+2.h5中新增了本地存储技术：localStorage/sessionStorage
+    sessionStorage是会话级的存储时间  / localStorage永久存储
+    存储数据：localStorage.setItem(&quot;键&quot;,&quot;值&quot;)
+    所有的值都应该是一个字符串类型的值，如果不是字符串类型，方法内部会把该值转换为字符串类型存储
+3.cookie
+4.服务器端：session
+对象的序列化和反序列化
+</code></pre><ul>
+<li>JSON.stringify(对象)：将一个对象序列化为一个json数据</li>
+<li>JSON.parse(“json数据”)：将一个json数据转化为一个对象</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1094,8 +1337,8 @@ CommonJS规范：nodeJS
             
               <a href="/archives">
             
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1106,7 +1349,7 @@ CommonJS规范：nodeJS
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -1116,8 +1359,8 @@ CommonJS规范：nodeJS
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1168,7 +1411,7 @@ CommonJS规范：nodeJS
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
