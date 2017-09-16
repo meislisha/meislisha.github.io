@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="一、JQ入口函数根据不同参数创建实例一、 创建实例的样式1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例； 2. 如果传入的是选择器，那么会把获取到的元素，按照下标存储起来，同时添加一个length属性代表数量； 3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量； 4. 如果">
+<meta name="description" content="一、JQ入口函数根据不同参数创建实例### 一、 创建实例的样式     1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例；      3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；     4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把leng">
 <meta name="keywords" content="技术,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jq.md">
 <meta property="og:url" content="http://yoursite.com/2017/09/07/jq/index.html">
 <meta property="og:site_name" content="ls-blog">
-<meta property="og:description" content="一、JQ入口函数根据不同参数创建实例一、 创建实例的样式1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例； 2. 如果传入的是选择器，那么会把获取到的元素，按照下标存储起来，同时添加一个length属性代表数量； 3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量； 4. 如果">
-<meta property="og:updated_time" content="2017-09-15T14:27:04.356Z">
+<meta property="og:description" content="一、JQ入口函数根据不同参数创建实例### 一、 创建实例的样式     1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例；      3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；     4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把leng">
+<meta property="og:updated_time" content="2017-09-16T13:56:50.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jq.md">
-<meta name="twitter:description" content="一、JQ入口函数根据不同参数创建实例一、 创建实例的样式1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例； 2. 如果传入的是选择器，那么会把获取到的元素，按照下标存储起来，同时添加一个length属性代表数量； 3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量； 4. 如果">
+<meta name="twitter:description" content="一、JQ入口函数根据不同参数创建实例### 一、 创建实例的样式     1. 传入null、undefined、0、NaN、&amp;apos;&amp;apos;： 统一返回空的实例；      3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；     4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把leng">
 
 
 
@@ -338,25 +338,29 @@
       
 
       
-        <h2 id="一、JQ入口函数根据不同参数创建实例"><a href="#一、JQ入口函数根据不同参数创建实例" class="headerlink" title="一、JQ入口函数根据不同参数创建实例"></a>一、JQ入口函数根据不同参数创建实例</h2><h3 id="一、-创建实例的样式"><a href="#一、-创建实例的样式" class="headerlink" title="一、 创建实例的样式"></a>一、 创建实例的样式</h3><pre><code>1. 传入null、undefined、0、NaN、&apos;&apos;： 统一返回空的实例；
-2. 如果传入的是选择器，那么会把获取到的元素，按照下标存储起来，同时添加一个length属性代表数量；
-3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；
-4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来；
-5. 如果传入的是伪数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来。
-    1. 伪数组的特点：
-        1. 必须要有length属性
-        2. 如果length属性值为0，那么这个对象有没有元素无所谓
-        3. 如果length属性值不为0，那么这个对象一定有 (length - 1) 为下标的属性值。
-        4. var obj = { length: 10, 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos;, 3: &apos;d&apos;, 4: &apos;e&apos;, 5: &apos;f&apos; };
-6. 如果传入的是对象，那么直接把这个对象按照下标添加到实例身上，同时添加一个length属性代表数量;
-7. 如果传入的是基本数据类型，null、undefined除外，字符串除外，那么直接把这个数据添加到实例身上，同时添加一个length属性代表数量。
-8. 如果传入的是DOM，那么把这个DOM添加到实例身上，同时添加一个length属性代表数量。
-</code></pre><h3 id="二、-实例对象"><a href="#二、-实例对象" class="headerlink" title="二、 实例对象"></a>二、 实例对象</h3><pre><code>1. jQuery实例对象是一个伪数组对象
-2. jquery对外暴露的jquer和$ ，这两方法实际上是同一个方法，调用这两个方法，可以得到jQuery实例对象；
-3. jquer和$ 实际上是一个工厂函数；
-4. 验证实例是伪装组;
-    1. console.log(({}).toString.call($div));
-</code></pre><h3 id="三、jQuery插件写法"><a href="#三、jQuery插件写法" class="headerlink" title="三、jQuery插件写法"></a>三、jQuery插件写法</h3><pre><code>1. jQuery.extend
+        <h2 id="一、JQ入口函数根据不同参数创建实例"><a href="#一、JQ入口函数根据不同参数创建实例" class="headerlink" title="一、JQ入口函数根据不同参数创建实例"></a>一、JQ入口函数根据不同参数创建实例</h2><pre><code>### 一、 创建实例的样式
+    1. 传入null、undefined、0、NaN、&apos;&apos;： 统一返回空的实例；
+
+    3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；
+    4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来；
+    5. 如果传入的是伪数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来。
+        1. 伪数组的特点：
+            1. 必须要有length属性
+            2. 如果length属性值为0，那么这个对象有没有元素无所谓
+            3. 如果length属性值不为0，那么这个对象一定有 (length - 1) 为下标的属性值。
+            4. var obj = { length: 10, 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos;, 3: &apos;d&apos;, 4: &apos;e&apos;, 5: &apos;f&apos; };
+    6. 如果传入的是对象，那么直接把这个对象按照下标添加到实例身上，同时添加一个length属性代表数量;
+    7. 如果传入的是基本数据类型，null、undefined除外，字符串除外，那么直接把这个数据添加到实例身上，同时添加一个length属性代表数量。
+    8. 如果传入的是DOM，那么把这个DOM添加到实例身上，同时添加一个length属性代表数量。
+
+### 二、 实例对象
+
+    1. jQuery实例对象是一个伪数组对象
+    2. jquery对外暴露的jquer和$ ，这两方法实际上是同一个方法，调用这两个方法，可以得到jQuery实例对象；
+    3. jquer和$ 实际上是一个工厂函数；
+    4. 验证实例是伪装组;
+        1. console.log(({}).toString.call($div));
+</code></pre><h2 id="二、jQuery插件写法"><a href="#二、jQuery插件写法" class="headerlink" title="二、jQuery插件写法"></a>二、jQuery插件写法</h2><pre><code>1. jQuery.extend
        这种功能一般是为$对象 直接增加可以访问的方法  使用频率较低
           $.extend({
                 sayHello: function () {
@@ -388,7 +392,7 @@
       内部可以理解为,就是 document.body.onclick  = function(){}
       当我们触发了 body的 点击事件时 等同于 document.body.onclick();
       所以这里的this 就是 绑定的那个 dom对象
-</code></pre><h3 id="三、jquery对象和dom元素"><a href="#三、jquery对象和dom元素" class="headerlink" title="三、jquery对象和dom元素"></a>三、jquery对象和dom元素</h3><pre><code>1. 每一次调用$(),都会产生一块新内存；虽然jquery对象不同，但是对象中的元素(&apos;input&apos;)(&apos;body&apos;)相同，都指向同一个dom元素,所以事件就绑定在了相同的元素中 
+</code></pre><h2 id="三、jquery对象和dom元素"><a href="#三、jquery对象和dom元素" class="headerlink" title="三、jquery对象和dom元素"></a>三、jquery对象和dom元素</h2><pre><code>1. 每一次调用$(),都会产生一块新内存；虽然jquery对象不同，但是对象中的元素(&apos;input&apos;)(&apos;body&apos;)相同，都指向同一个dom元素,所以事件就绑定在了相同的元素中 
         页面中有一个&lt;input type=&quot;text&quot;&gt;
         var $1=$(&quot;input&quot;).on(&quot;click&quot;, function () {
            alert(&quot;第一次&quot;);
@@ -481,6 +485,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/09/16/requireJS/" rel="prev" title="requireJs">
+                requireJs <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -559,7 +567,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -570,7 +578,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Kategorien</span>
               
             </div>
@@ -581,7 +589,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
@@ -616,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JQ入口函数根据不同参数创建实例"><span class="nav-number">1.</span> <span class="nav-text">一、JQ入口函数根据不同参数创建实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-创建实例的样式"><span class="nav-number">1.1.</span> <span class="nav-text">一、 创建实例的样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-实例对象"><span class="nav-number">1.2.</span> <span class="nav-text">二、 实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、jQuery插件写法"><span class="nav-number">1.3.</span> <span class="nav-text">三、jQuery插件写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、jquery对象和dom元素"><span class="nav-number">1.4.</span> <span class="nav-text">三、jquery对象和dom元素</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JQ入口函数根据不同参数创建实例"><span class="nav-number">1.</span> <span class="nav-text">一、JQ入口函数根据不同参数创建实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、jQuery插件写法"><span class="nav-number">2.</span> <span class="nav-text">二、jQuery插件写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、jquery对象和dom元素"><span class="nav-number">3.</span> <span class="nav-text">三、jquery对象和dom元素</span></a></li></ol></div>
             
 
           </div>

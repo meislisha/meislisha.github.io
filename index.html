@@ -234,6 +234,293 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/requireJS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lisha">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img3.duitang.com/uploads/item/201405/24/20140524130307_Wv8Bv.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ls-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/16/requireJS/" itemprop="url">requireJs</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-16T21:38:56+08:00">
+                2017-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/插件及框架的使用/" itemprop="url" rel="index">
+                    <span itemprop="name">插件及框架的使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、使用模块化的好处"><a href="#一、使用模块化的好处" class="headerlink" title="一、使用模块化的好处"></a>一、使用模块化的好处</h3><pre><code>1. 具有实现一个完整功能的整体
+2. 使用模块化的好处
+    + 为了更好地复用
+    + 减少全局变量污染
+    + 解决功能之间的依赖关系
+3.requireJS/angular/vue都是适用于：单页应用：Single Page Application(SPA)
+</code></pre><h3 id="二、使用闭包来实现模块化"><a href="#二、使用闭包来实现模块化" class="headerlink" title="二、使用闭包来实现模块化"></a>二、使用闭包来实现模块化</h3><pre><code>+ 闭包实现存在的缺点
+    - 随着功能的增加，暴露的全局变量也会越来越多
+        - requireJS几乎没有全局变量
+    - 不能很好的解决模块依赖的问题
+</code></pre><h3 id="三、AMD规范和CMD规范比较大的区别："><a href="#三、AMD规范和CMD规范比较大的区别：" class="headerlink" title="三、AMD规范和CMD规范比较大的区别："></a>三、AMD规范和CMD规范比较大的区别：</h3><pre><code>1.AMD规范就是指requireJS
+    --&gt;async module define：异步模块定义(异步加载模块、依赖前置)
+        --&gt;模块定义和导入(使用)：define定义一个模块，define([&quot;导入的模块&quot;])/require([&quot;导入模块&quot;])
+        --&gt;异步加载模块   动态创建script标签
+        --&gt;依赖前置：把所有依赖的模块放在文件的头部
+
+2.CMD规范就是指的seajs
+    --&gt;common module define：通用模块定义(同步加载模块)
+        --&gt;模块定义和导入：exports/module.exports
+        --&gt;同步加载模块
+        --&gt;依赖就近：50行代码使用商品模块的功能，就在49行依赖商品模块
+            --&gt;49行：var product=require(&quot;product&quot;);  //导入商品模块
+            --&gt;50行：product.add([]);                 //初始化一个商品
+CommonJS规范：nodeJS
+</code></pre><h3 id="四、入门"><a href="#四、入门" class="headerlink" title="四、入门"></a>四、入门</h3><pre><code>1.  引入requirejs文件
+
+2. 编写js代码
+   在a.js文件中通过来定义一个模块(tip:约定一个js文件就是一个模块)
+
+        define([],function(){
+          //模块内部的代码
+        })
+
+   在b.js文件中从而获取a.js中的代码，这样的话就可以保证在执行b.js中的代码之前先执行了a.js中的代码
+
+        require([&quot;a&quot;],function(){
+
+        })
+
+加载了require.js，并且我们在加载require.js这段代码的后面通过require函数导入了
+</code></pre><h3 id="五、依赖注入：模块具有返回值"><a href="#五、依赖注入：模块具有返回值" class="headerlink" title="五、依赖注入：模块具有返回值"></a>五、依赖注入：模块具有返回值</h3><pre><code>1. 入口文件
+    在index.html中引入requirejs时的script标签添加data-main属性值，那么requirejs就会自动加载该文件(模块)，可以通过该文件来进行访问其他的模块(这里引入main.js文件)
+
+         &lt;script src=&quot;require.js&quot; data-main=&quot;./main&quot;&gt;&lt;/script&gt;
+
+2. 给定义模块的回调函数添加return语句
+    //a.js文件中
+    define(function(){
+        //模块的逻辑
+        return function(){
+            console.log(&apos;a文件加载成功&apos;)
+        }
+    })
+
+    //b.js文件中
+    define(function(){
+        return function(){
+            console.log(&apos;b文件加载成功&apos;)
+        }
+    })
+
+    //c.js文件中
+    define(function(){
+       return function(){
+            console.log(&apos;c文件加载成功&apos;)
+        }
+    })
+
+
+3.创建一个main.js文件，load.js依赖了三个模块a.js,b.js,c.js,在获取模块的时候，通过require()的第二个参数来依次获取各个模块的返回值
+    //main.js文件中
+    require([&quot;./a.js&quot;,&quot;./b.js&quot;,&quot;./c.js&quot;],function(a,b,c){
+        a();
+        b();
+        c();
+      })
+
+4.通过依赖注入可以实现按需加载
+
+    requireJs使用的是异步加载，所以我们加载多个模块的时候就会发生加载顺序不正确的问题，main.js依赖了3个子模块，这3个子模块加载顺序，我们是不能决定的。我们能决定的是：3个子模块功能的执行顺序
+5.关于依赖注入 子模块功能的执行顺序的问题
+
+    实际开发中，可能一个js文件会依赖无数个模块，对于无数个模块有的有返回值，有的没有返回值，在添加模块依赖的时候，应该注意：把所有的有返回值的模块在前面添加，把没有返回值的模块在后面添加
+
+    例举例：
+
+         //这里a.js和c.js有返回值，b.js无返回值，下面这种写法会导致a模块可以正常获取，c接受了b模块的返回值，b模块没有返回值，所以c的值为：undefined
+             require([&quot;./a.js&quot;,&quot;./b.js&quot;,&quot;./c.js&quot;],function(a,c){
+
+              })
+
+     所以正确写法应该为：
+
+            require([&quot;./a.js&quot;,&quot;./c.js&quot;,&quot;./b.js&quot;],function(a,c){
+                    //a接受a模块返回值
+                    //c接受c模块返回值
+                    //b模块没有返回值，就不用接收
+              })
+</code></pre><h3 id="六、引入第三方文件"><a href="#六、引入第三方文件" class="headerlink" title="六、引入第三方文件"></a>六、引入第三方文件</h3><pre><code>1.对于任何第三方模块来说，都可以在requirejs中引用该模块的路径从而使用该模块的功能    
+    支持AMD规范的模块（有返回值,可以使用形参接收）：
+        require([&quot;jquery-2.1.2&quot;,&quot;template-web&quot;], function ($,template){
+
+        }))
+    不支持MD规范的模块,但是它又依赖于其他模块(比如jquery)，就可以通过shim来解决，下面将会作出解释；
+
+2.配置常用的模块路径(比如：jquery/arttemplate)
+    1. require.config({
+        baseUrl:&quot;./lib&quot;,
+        paths:{
+            //路径不需要.js后缀，最终该文件的路径将会和baseUrl拼接，也就是：&quot;./lib/js/jquery-2.1.4&quot;
+            jquery:&quot;js/jquery-2.1.4&quot;
+            bootstrap:&quot;assets/bootstrap/bootstrap&quot;
+        }，
+         shim:{
+            //这里的bootstrap就是上面的paths中的bootstrap
+            bootstrap:{
+                //这样在请求bootstrap的时候会自动去请求jquery模块
+                deps:[&quot;jquery&quot;] //这里的&quot;jquery&quot;也是上面paths中的jquery
+            }
+        }
+    })
+    //a.js文件中
+    define([&quot;jquery&quot;],function($){
+        //这里请求的jquery也就是去上面paths中设置的jquery进行查找,也就是：&quot;./lib/js/jquery-2.1.4&quot;
+
+    })
+3.shim只用于第三方模块
+    shim一般适用于：引入了2个第三方模块，之间存在依赖，其中一个不支持AMD规范导入了jquery/bootstrap，bootstrap依赖了jquery，因为bootstrap不支持AMD规范，所以采用了shim
+
+4.如果引用了2个第三方模块，2个第三方模块都支持AMD规范，那么就可以使用AMD规范中的写法
+
+5.检测第三方库是否支持AMD规范？
+    查看源代码，看看是否有以下内容？如果有，说明支持AMD规范，如果没有说明不支持
+
+    if (typeof define === &quot;function&quot; &amp;&amp; define.amd) {}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/jq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -338,25 +625,29 @@
       
         
           
-            <h2 id="一、JQ入口函数根据不同参数创建实例"><a href="#一、JQ入口函数根据不同参数创建实例" class="headerlink" title="一、JQ入口函数根据不同参数创建实例"></a>一、JQ入口函数根据不同参数创建实例</h2><h3 id="一、-创建实例的样式"><a href="#一、-创建实例的样式" class="headerlink" title="一、 创建实例的样式"></a>一、 创建实例的样式</h3><pre><code>1. 传入null、undefined、0、NaN、&apos;&apos;： 统一返回空的实例；
-2. 如果传入的是选择器，那么会把获取到的元素，按照下标存储起来，同时添加一个length属性代表数量；
-3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；
-4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来；
-5. 如果传入的是伪数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来。
-    1. 伪数组的特点：
-        1. 必须要有length属性
-        2. 如果length属性值为0，那么这个对象有没有元素无所谓
-        3. 如果length属性值不为0，那么这个对象一定有 (length - 1) 为下标的属性值。
-        4. var obj = { length: 10, 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos;, 3: &apos;d&apos;, 4: &apos;e&apos;, 5: &apos;f&apos; };
-6. 如果传入的是对象，那么直接把这个对象按照下标添加到实例身上，同时添加一个length属性代表数量;
-7. 如果传入的是基本数据类型，null、undefined除外，字符串除外，那么直接把这个数据添加到实例身上，同时添加一个length属性代表数量。
-8. 如果传入的是DOM，那么把这个DOM添加到实例身上，同时添加一个length属性代表数量。
-</code></pre><h3 id="二、-实例对象"><a href="#二、-实例对象" class="headerlink" title="二、 实例对象"></a>二、 实例对象</h3><pre><code>1. jQuery实例对象是一个伪数组对象
-2. jquery对外暴露的jquer和$ ，这两方法实际上是同一个方法，调用这两个方法，可以得到jQuery实例对象；
-3. jquer和$ 实际上是一个工厂函数；
-4. 验证实例是伪装组;
-    1. console.log(({}).toString.call($div));
-</code></pre><h3 id="三、jQuery插件写法"><a href="#三、jQuery插件写法" class="headerlink" title="三、jQuery插件写法"></a>三、jQuery插件写法</h3><pre><code>1. jQuery.extend
+            <h2 id="一、JQ入口函数根据不同参数创建实例"><a href="#一、JQ入口函数根据不同参数创建实例" class="headerlink" title="一、JQ入口函数根据不同参数创建实例"></a>一、JQ入口函数根据不同参数创建实例</h2><pre><code>### 一、 创建实例的样式
+    1. 传入null、undefined、0、NaN、&apos;&apos;： 统一返回空的实例；
+
+    3. 如果传入的是html片段，那么会根据这些片段创建DOM对象，然后按照下标存储起来，同时添加一个length属性代表数量；
+    4. 如果传入的是数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来；
+    5. 如果传入的是伪数组，那么会把数组中的每一项分别添加到实例身上，同时把length也加过来。
+        1. 伪数组的特点：
+            1. 必须要有length属性
+            2. 如果length属性值为0，那么这个对象有没有元素无所谓
+            3. 如果length属性值不为0，那么这个对象一定有 (length - 1) 为下标的属性值。
+            4. var obj = { length: 10, 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos;, 3: &apos;d&apos;, 4: &apos;e&apos;, 5: &apos;f&apos; };
+    6. 如果传入的是对象，那么直接把这个对象按照下标添加到实例身上，同时添加一个length属性代表数量;
+    7. 如果传入的是基本数据类型，null、undefined除外，字符串除外，那么直接把这个数据添加到实例身上，同时添加一个length属性代表数量。
+    8. 如果传入的是DOM，那么把这个DOM添加到实例身上，同时添加一个length属性代表数量。
+
+### 二、 实例对象
+
+    1. jQuery实例对象是一个伪数组对象
+    2. jquery对外暴露的jquer和$ ，这两方法实际上是同一个方法，调用这两个方法，可以得到jQuery实例对象；
+    3. jquer和$ 实际上是一个工厂函数；
+    4. 验证实例是伪装组;
+        1. console.log(({}).toString.call($div));
+</code></pre><h2 id="二、jQuery插件写法"><a href="#二、jQuery插件写法" class="headerlink" title="二、jQuery插件写法"></a>二、jQuery插件写法</h2><pre><code>1. jQuery.extend
        这种功能一般是为$对象 直接增加可以访问的方法  使用频率较低
           $.extend({
                 sayHello: function () {
@@ -388,7 +679,7 @@
       内部可以理解为,就是 document.body.onclick  = function(){}
       当我们触发了 body的 点击事件时 等同于 document.body.onclick();
       所以这里的this 就是 绑定的那个 dom对象
-</code></pre><h3 id="三、jquery对象和dom元素"><a href="#三、jquery对象和dom元素" class="headerlink" title="三、jquery对象和dom元素"></a>三、jquery对象和dom元素</h3><pre><code>1. 每一次调用$(),都会产生一块新内存；虽然jquery对象不同，但是对象中的元素(&apos;input&apos;)(&apos;body&apos;)相同，都指向同一个dom元素,所以事件就绑定在了相同的元素中 
+</code></pre><h2 id="三、jquery对象和dom元素"><a href="#三、jquery对象和dom元素" class="headerlink" title="三、jquery对象和dom元素"></a>三、jquery对象和dom元素</h2><pre><code>1. 每一次调用$(),都会产生一块新内存；虽然jquery对象不同，但是对象中的元素(&apos;input&apos;)(&apos;body&apos;)相同，都指向同一个dom元素,所以事件就绑定在了相同的元素中 
         页面中有一个&lt;input type=&quot;text&quot;&gt;
         var $1=$(&quot;input&quot;).on(&quot;click&quot;, function () {
            alert(&quot;第一次&quot;);
@@ -591,20 +882,7 @@
       
         
           
-            <h4 id="一、举例"><a href="#一、举例" class="headerlink" title="一、举例"></a>一、举例</h4><pre><code>1. git init  
-2. touch login.txt (进行编辑)；
-3. git add .--&gt;git commit -m 完成登录页面
-4. git branch car
-5. git  checkout car
-6. touch car.txt (进行编辑)--&gt; git add .--&gt;git commit -m 购物车编辑
-7. git  checkout master(car.txt 将会看不见，因为处于car分支下面)；
-8. --&gt; git add .--&gt;git commit -m 解决master问题
-9.  git  checkout car
-10.   car.txt (进行编辑)--&gt; git add .--&gt;git commit -m 购物车完成
-11.    git  checkout master
-12.    git merge car -m 备注信息  （将指定分支合并到当前分支下）
-13.    git branch -d car 删除指定的分支
-</code></pre>
+            <h4 id="一、举例"><a href="#一、举例" class="headerlink" title="一、举例"></a>一、举例</h4>
           
         
       
@@ -816,7 +1094,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -827,7 +1105,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Kategorien</span>
               
             </div>
@@ -838,7 +1116,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
