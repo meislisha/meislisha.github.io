@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="技术,JavaScript,cookie--localStorage--sessionStorage," />
+  <meta name="keywords" content="技术,frame,cookie--localStorage--sessionStorage," />
 
 
 
@@ -96,13 +96,13 @@
 
 
 <meta name="description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
-<meta name="keywords" content="技术,JavaScript,cookie--localStorage--sessionStorage">
+<meta name="keywords" content="技术,frame,cookie--localStorage--sessionStorage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cookie--localStorage--sessionStorage">
 <meta property="og:url" content="http://yoursite.com/2017/07/07/cookie--localStorage--sessionStorage/index.html">
 <meta property="og:site_name" content="ls-blog">
 <meta property="og:description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
-<meta property="og:updated_time" content="2017-09-16T15:33:13.460Z">
+<meta property="og:updated_time" content="2017-09-18T13:09:33.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cookie--localStorage--sessionStorage">
 <meta name="twitter:description" content="一、cookie1.cookie值基于会话机制存储的，随着会话的结束(浏览器关闭)，该cookie值就丢失了  2.原生JS     1.设置cookie         document.cookie=&amp;quot;id=666&amp;quot;;     2.获取当前回话cookie值         console.log(document.cookie);     3.cookie也可以长期保存">
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -301,8 +301,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/javasCript/" itemprop="url" rel="index">
-                    <span itemprop="name">javasCript</span>
+                  <a href="/categories/技术/frame/" itemprop="url" rel="index">
+                    <span itemprop="name">frame</span>
                   </a>
                 </span>
 
@@ -358,7 +358,7 @@
             //expires的值可以是一个Date类型的对象，也可以是一个以天为单位的数字
             expires:0.5
         });
-    4.移除一个cookie
+    4.移除一个cookie(原理：设置一个比当前时间早的时间，就可以移除一个cookie)
          $.removeCookie(&quot;gender&quot;);
  4.封装cookie函数
 
@@ -388,7 +388,20 @@
         }
 
 5.cookie可以实现跨页面传值：但必须要在同一个域名下面的不同页面
-</code></pre><h2 id="跨页面传值"><a href="#跨页面传值" class="headerlink" title="跨页面传值"></a>跨页面传值</h2><pre><code>1.get请求的参数
+
+6.cookie
+    1.保存一些需要在多个页面中访问的数据
+        a.对于一些有效性要求很高的数据不能使用cookie存储，比如：表格中的数据
+        b.可以保存当前登陆用户的一些信息：用户的头像、用户名、用户id等可能会在多个页面中访问的数据
+
+    2.不能保存安全性较高的内容
+    3.保存的数据大小也是有限制的(不要保存数据太大的内容)
+
+7.对象的序列化和反序列化
+    设置cookie值时：需要将对象转换为字符串
+    JSON.stringify(对象)：将一个对象序列化为一个json数据字符串
+    JSON.parse(&quot;json数据&quot;)：将一个json数据字符串转化为一个对象
+</code></pre><h2 id="二、localStorage"><a href="#二、localStorage" class="headerlink" title="二、localStorage"></a>二、localStorage</h2><h2 id="跨页面传值"><a href="#跨页面传值" class="headerlink" title="跨页面传值"></a>跨页面传值</h2><pre><code>1.get请求的参数
     页面跳转，传递的参数作为URL路劲的一部分
         location.href=&quot;index.html?id=666&amp;age=18&quot;;
     在目标页面，通过location.search找到参数
@@ -396,15 +409,10 @@
 2.h5中新增了本地存储技术：localStorage/sessionStorage
     sessionStorage是会话级的存储时间  / localStorage永久存储
     存储数据：localStorage.setItem(&quot;键&quot;,&quot;值&quot;)
+    获取数据：localStorage.sgetItem(&quot;键&quot;)
     所有的值都应该是一个字符串类型的值，如果不是字符串类型，方法内部会把该值转换为字符串类型存储
 3.cookie
-4.服务器端：session
-对象的序列化和反序列化
-</code></pre><ul>
-<li>JSON.stringify(对象)：将一个对象序列化为一个json数据</li>
-<li>JSON.parse(“json数据”)：将一个json数据转化为一个对象</li>
-</ul>
-
+</code></pre>
       
     </div>
     
@@ -423,7 +431,7 @@
           
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/frame/" rel="tag"># frame</a>
           
             <a href="/tags/cookie-localStorage-sessionStorage/" rel="tag"># cookie--localStorage--sessionStorage</a>
           
@@ -437,6 +445,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/ajax/" rel="next" title="ajax">
+                <i class="fa fa-chevron-left"></i> ajax
+              </a>
             
           </div>
 
@@ -526,7 +538,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -537,7 +549,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               
             </div>
@@ -548,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
@@ -583,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、cookie"><span class="nav-number">1.</span> <span class="nav-text">一、cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨页面传值"><span class="nav-number">2.</span> <span class="nav-text">跨页面传值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、cookie"><span class="nav-number">1.</span> <span class="nav-text">一、cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、localStorage"><span class="nav-number">2.</span> <span class="nav-text">二、localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨页面传值"><span class="nav-number">3.</span> <span class="nav-text">跨页面传值</span></a></li></ol></div>
             
 
           </div>
@@ -620,7 +632,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
 
 
         

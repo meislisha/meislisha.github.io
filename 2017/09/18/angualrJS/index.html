@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术,frame,angularJS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="一、MVC模式1.我们将我们的代码分为三部分         M - Model 数据 数据实体,用来保存页面要展示的数据.         V - View 视图 负责显示数据的,一般其实就是指的html页面.         C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.     这3部分各司其职,分工合作,我">
+<meta name="keywords" content="技术,frame,angularJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angualrJS">
+<meta property="og:url" content="http://yoursite.com/2017/09/18/angualrJS/index.html">
+<meta property="og:site_name" content="ls-blog">
+<meta property="og:description" content="一、MVC模式1.我们将我们的代码分为三部分         M - Model 数据 数据实体,用来保存页面要展示的数据.         V - View 视图 负责显示数据的,一般其实就是指的html页面.         C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.     这3部分各司其职,分工合作,我">
+<meta property="og:updated_time" content="2017-09-20T05:07:12.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angualrJS">
+<meta name="twitter:description" content="一、MVC模式1.我们将我们的代码分为三部分         M - Model 数据 数据实体,用来保存页面要展示的数据.         V - View 视图 负责显示数据的,一般其实就是指的html页面.         C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.     这3部分各司其职,分工合作,我">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/18/angualrJS/"/>
+
+
+
+
+
+  <title>angualrJS | ls-blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ls-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/angualrJS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lisha">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://img3.duitang.com/uploads/item/201405/24/20140524130307_Wv8Bv.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ls-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">angualrJS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T14:45:24+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/frame/" itemprop="url" rel="index">
+                    <span itemprop="name">frame</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、MVC模式"><a href="#一、MVC模式" class="headerlink" title="一、MVC模式"></a>一、MVC模式</h3><pre><code>1.我们将我们的代码分为三部分
+        M - Model 数据 数据实体,用来保存页面要展示的数据.
+        V - View 视图 负责显示数据的,一般其实就是指的html页面.
+        C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.
+    这3部分各司其职,分工合作,我们的代码就会变得更有层次并容易维护，这样的程序设计模式,我们就叫做MVC设计模式.
+</code></pre><h3 id="二、模块化"><a href="#二、模块化" class="headerlink" title="二、模块化"></a>二、模块化</h3><pre><code>1.使用AngularJS构建应用（App）时是以模块化（Module）的方式组织的，即将整个应用划分成若干模块，每个模块都有各自的职责，最终组合成一个整体。
+2.采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。
+3.基本模板
+    1. 定义应用：
+        通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用（App）的一部分。通俗的理解就是: ng-app属性标签被Angular管理，包括其中的子标签.Angular会认为这是一个应用，将其作为一个应用来看待。
+    2. 定义模块
+        AngularJS提供了一个全局对象angular,调用该全局对象的module()方法可以创建一个模块.该方法返回一个模块对象.这个模块对象就是AngularJS用来管理应用的对象.
+    3. 定义控制器
+        1.通过app模块对象来创建控制器；
+        2.调用app模块对象的controller方法，就可以创建控制器
+        3.但是这个时候,我们只是创建了控制器,并没有将控制器和视图关联起来；
+        4.视图是用来负责显示数据的,控制器是来处理数据模型,并将数据模型给视图展示，视图就是我们的html页面. 所以我们可以指定1个html元素(视图)与这个控制器相关联
+        5.为这个html元素指定1个ng-controller属性，值为创建controller的第1个参数的值，这时候创建的控制器就与这个视图关联起来了，在控制器中就可以处理制造数据，视图中就可以显示模型数据了；
+    4. 数据模型
+        ｛｛xx｝｝
+
+4. 简洁的来说
+    1.指定Angular管理的范围.ng-app
+    2.创建模块. angular.module()
+    3.创建角色
+        3.1创建控制器 app.controller()
+        3.2指定与控制器关联的视图 ng-controller
+    4.控制器制造数据模型并附到$scope. $scope.name = &apos;lisi&apos;;
+    5.在视图中显示模型数据. ｛｛name｝｝
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div><div class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;./lib/angular.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-app=&quot;App&quot;&gt;</div><div class="line">&lt;div ng-controller=&quot;demoCtrl&quot;&gt;&lt;/div&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">	    var app = angular.module(&quot;App&quot;,[]);</div><div class="line">	    app.controller(&quot;demoCtrl&quot;,[&quot;$scope&quot;,function($scope)&#123;</div><div class="line"></div><div class="line">	    &#125;]);</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="三、一些基本的内置指令"><a href="#三、一些基本的内置指令" class="headerlink" title="三、一些基本的内置指令"></a>三、一些基本的内置指令</h3><pre><code>1. ng-app 指定应用根元素 也就是ng管理的范围.可以使用全局对象angular的module方法根据该属性的值创建模块对象.
+2. ng-controller 指定与控制器关联的视图.
+3. ng-show 控制元素及其子元素是否显示 true-&gt;显示 false-&gt;不显示
+4. ng-hide 控制元素及其子元素是否隐藏 true-&gt;隐藏 false-&gt;不隐藏
+5. ng-if 控制元素及其子元素是否创建 true-&gt;创建 false-&gt;删除.
+6. ng-src 增强图片路径. src=&quot;&quot;虽然能显示,但是会报错.报错的原因,因为在浏览器进行解析的时候，先解析dom 元素，解析src时，由于还没有解析到angularJS，所以src路径找不到，所以会报错；
+7. ng-href 增强href路径
+8. ng-class 值为对象 {red:true} 表示会添加1个red类名到元素身上.{red:false}不会将red类名添加到元素身上.
+9. ng-include 将外部文件包含进来.一般用在页面的公共部分.被请求的页面是以ajax的方式请求的. ng-inlcude=&quot;&apos;path&apos;&quot;需要注意的是,给该属性赋值的时候,属性本身的值应该使用双引号引起来,但是其中的路径还要使用单引号引起来.
+10. ng-disable 是否禁用表单元素
+11. ng-readonly 是否只读
+12. ng-checked　原生的checked属性带有歧义,ng补充1个新的指令ng-checked 其值bool类型 true选中 false不选中.
+13. ng-selected 是否选中
+14. ng-init  初始化指令，和$scope.name功能一样，都是初始化模型数据
+15. ng-repeat指令   
+    1. 遍历数组. 重复生成指定的标签.
+    2. 也可以遍历对象.
+    3. &lt;li ng-repeat=&quot;(key,value) in arr&quot;&gt;{{key}}={{value}}&lt;/li&gt;
+    4. 使用ng-repeat来遍历数组的时候.
+        1. 如果数组中的元素的值有重复.那么会遍历失败.，ng底层会给数组的每一个元素自动的起一个标识，并且这个标识不允许重复，默认会将数组元素的值作为每一个元素的标识.
+        2. 我们可以自定义每一个元素的标识.
+           $index 是ng预先定义好的变量 代表每一个元素的下标.
+            &lt;li ng-repeat=&quot;item in arr track by $index&quot;&gt;{{$index}} = {{item}}&lt;/li&gt;
+        3. 如果是遍历数组，但是数组里都是对象，且对象的值也一样，遍历成功，因为这个时候 这四个元素的值不一样.
+               $scope.stus = [ 
+                    {id:1,name:&quot;jack&quot;,age:18},
+                    {id:1,name:&quot;jack&quot;,age:18},
+                    {id:1,name:&quot;jack&quot;,age:18},
+                    {id:1,name:&quot;jack&quot;,age:18}
+                ];
+16. ng-switch  对某1个变量的值进行匹配.匹配成功的元素将会被创建. 
+    &lt;ul ng-switch=&quot;lesson&quot;&gt;
+        &lt;li ng-switch-when=&quot;html&quot;&gt;html&lt;/li&gt;
+        &lt;li ng-switch-when=&quot;js&quot;&gt;js&lt;/li&gt;
+    &lt;/ul&gt;
+17. 因为在引入angularJS，在视图中使用$scope数据模型中的数据，有时候需要用{{}}，有时候又不需要{{}}，所以{{}}的使用地方总结：
+    1. 当使用数据的地方是html原生的地方的时候,就必须要加{{}}
+    2. 当使用数据的地方是angular的地方（也就是例如ng-show,ng-if等）
+        1. 绝大多数情况下，直接使用变量就行，不需要加{{}}；
+        2. 但是ng-src例外，ng-src在使用时$scope数据时需要加{{}}；
+
+18. 事件处理
+    1. 原生js绑定事件，会造成全局污染
+    2. ng是以指令的方式来绑定事件的，ng-click ng-mouseover ng-mouseout。。。。。
+    3. &lt;button ng-click=&quot;demo()&quot;&gt;点我&lt;/button&gt;；
+</code></pre><h3 id="四、自定义指令"><a href="#四、自定义指令" class="headerlink" title="四、自定义指令"></a>四、自定义指令</h3><pre><code>1. AngularJS不仅提供了功能强大的内置指令.还提供了一套允许我们自定义指令的机制.
+2. 模块对象app,提供了一个directive方法,这个方法就可以让我们自定义指令.
+3. 该方法需要两个参数
+    第1个参数 指令的名称 - 指令名称不能包含符号，如果指令名称是tag,就直接使用tag.如果自定义指令的名称是按照驼峰命名的 那么在使用的时候要拆开写 （例如：指令是demoTag,那么要使用demo-tag）
+    第2个参数 回调函数
+3. 这个回调函数要求返回1个对象.
+      自定义的指令要做的事情通过这个对象的键值对来指定.
+      restrict:  指定自定义指令的类型.           
+      template: 模板   会将其放到自定义指令的里面作为子元素
+      replace: boolean  是否替换自定义指令标签.
+      templateUrl: 外部文件作为模板.
+      scope:true/false/{}
+      controller:function($scope){
+            $scope.name=&apos;wangwu&apos;
+        }
+     app.directive(&quot;heTag&quot;, function () {
+        return {
+            restrict:&quot;AE&quot;,
+            template: &quot;&lt;h1&gt;哈哈哈!&lt;/h1&gt;&quot;,
+            replace: true
+            //templateUrl:&quot;./inlcude演示/top.html&quot;，
+            link:function(scope，element,attrs){
+                console.log(attrs.heTag);
+                element.on(&apos;click&apos;,function(){
+                    console.log(1);
+            })
+        };
+    });
+4. ECMA
+    1. E:Element  标签.    &lt;hello&gt;&lt;/hello&gt;
+    2. C:Class    类       &lt;div hello&gt;&lt;/div&gt;
+    3. M:mark     注释     &lt;!-- directive:hello --&gt;(与注释符号之间要有空格)
+    4. A:Attr     属性     &lt;div hello&gt;&lt;/div&gt;
+5. template還可以使用$templateCache 来进行缓存
+     app.run(function($templateCache){
+                $templateCache.put(&apos;hi.html&apos;,&apos;&lt;h1&gt;hi,nihao&lt;/h1&gt;&apos;);
+    })
+    app.directive(&apos;hi&apos;,function($templateCache){
+        return {
+            template:$templateCache.get(&apos;hi.html&apos;),
+            replace:true,
+        }
+    })
+6. link:是一个函数，有三个参数：
+                scope，
+                element：被设定了指令的元素，直接被ng封装成了一个 jqlite对象                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                attrs： 可以拿到被设定了指令的元素的所有属性名和属性值
+            当angularjs在解析页面的时候,如果发现某一个元素被设定了指令.就会去执行这个指令对应的link函数.
+7. $scope
+    1. $scope:默认为false
+        1. 在指令模板中可以直接使用父作用域中的变量
+        2. 所有用到这个自定义指令都是共享一个同一个model模型，都是同一个作用域（父作用域）；
+    2. $scope:true
+        1. 创建的指令要创建一个新的作用域
+        2. 这个作用域继承自我们的父作用域。
+        3. 举例
+            app.directive(&quot;hello&quot;, function() {
+                return {
+                    restrict: &apos;AE&apos;,
+                    //scope:{},
+                    template: &apos;&lt;div&gt;&lt;input type=&quot;text&quot; ng-model=&quot;userName&quot;/&gt;{{userName}}&lt;/div&gt;&apos;,
+                    replace: true
+                }
+            });
+
+            htmlz中：
+                &lt;hello&gt;&lt;/hello&gt;
+                &lt;hello&gt;&lt;/hello&gt;
+                &lt;hello&gt;&lt;/hello&gt;
+                &lt;hello&gt;&lt;/hello&gt;
+
+    若不设置scope:{}则会发生:在一个input标签中输入内容，其他三个input和{{userName}}，都会跟着变化，这就是共享同一个作用域的结果
+    所以需要设置:$scope:{}   这样每个自定义指令都有自己的作用域，即隔离scope
+8. 隔离scope
+    AngularJS 的 directive 默认能共享父 scope 中定义的属性，例如在模版中直接使用父 scope 中的对象和属性。通常使用这种直接共享的方式可以实现一些简单的 directive 功能。当你需要创建一个可重复使用的 directive，只是偶尔需要访问或者修改父 scope 的数据，就需要使用隔离 scope。当使用隔离 scope 的时候，directive 会创建一个没有依赖父 scope 的 scope，并提供一些访问父 scope 的方式
+9. controller
+    1. 指令作用域中的&quot;=&quot;：
+        1. 表示与父scope中的属性进行双向数据绑定
+            &lt;div ng-controller=&quot;demoCtrl&quot;&gt;
+                &lt;div tag name=&quot;msg&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+         app.controller(&quot;demoCtrl&quot;, [&quot;$scope&quot;, function ($scope) {
+                $scope.msg=&apos;hello&apos;;
+            }]);
+            app.directive(&apos;tag&apos;,function(){
+                return {
+                    restrict:&apos;ECMA&apos;,
+                    $scope:{
+                        name:&apos;=&apos;
+                    },
+                    template:&apos;  &lt;div&gt;{{msg}}&lt;/div&gt;&apos;
+                }
+        })
+        2. 通过&quot;=&quot;实现了指定中的属性与父scope中的属性进行双向数据绑定，从而当改变一个值时达到互相影响对方的作用
+    2. 指令作用域中的&quot;&amp;&quot;：表示与父scope中的函数进行传递，稍后进行调用。
+    3. 指令作用域中的&quot;@&quot;：把当前属性作为字符串传递实现指令与html页面元素关联，你还可以绑定来自最外层scope的值，在属性值中插入{{}}即可
+            &lt;div ng-controller=&quot;demoCtrl&quot;&gt;
+                &lt;tag tag2=&apos;{{attr}}&apos;&gt;&lt;/tag&gt;
+            &lt;/div&gt;
+            app.controller(&quot;demoCtrl&quot;, [&quot;$scope&quot;, function ($scope) {
+                $scope.attr=&apos;hello&apos;;
+            }]);           
+            app.directive(&apos;tag&apos;,function(){
+                return {
+                    restrict:&apos;ECMA&apos;,
+                    scope:{
+                        tag2:&apos;@&apos;
+                    },
+                template:&apos;  &lt;div&gt;{{tag2}}&lt;/div&gt;&apos;，
+                // link:function(scope,element,attrs){
+                        //     scope.tag2=attrs.tag2;
+                        // }//@其实是与link这里的代码是等价的
+                }
+            })
+        1.通过@实现指令与html页面元素进行关联。
+        2.在控制器中又实现了与页面的关联。
+        3.通过html实现了控制器和指令之间的联系。
+10. 一个自定义指令被多个控制器使用（指令的复用）
+            &lt;div ng-controller=&quot;demoCtrl&quot;&gt;
+                &lt;div tag=&quot;load()&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div ng-controller=&quot;demoCtrl2&quot;&gt;
+                &lt;div tag=&quot;load()&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+        app.controller(&quot;demoCtrl&quot;, [&quot;$scope&quot;, function ($scope) {
+                $scope.load=function(){
+                    console.log(&apos;1111&apos;);
+                }
+            }]);
+            app.controller(&quot;demoCtrl2&quot;, [&quot;$scope&quot;, function ($scope) {
+                $scope.load=function(){
+                    console.log(&apos;2222&apos;);
+                }
+            }]);
+            app.directive(&apos;tag&apos;,function(){
+                return {
+                    template:&apos;  &lt;button&gt;按钮&lt;/button&gt;&apos;,
+                    link:function(scope,element,attrs){
+                       element.on(&apos;click&apos;,function(){
+        //                   scope.$apply(attrs.tag);//两种方法都可以
+                           scope.load();
+                       })
+                    }
+                }
+            })
+            //scope.$apply()  也可以进行函数的调用
+11. 配合angular指令的transclude选项以及ng-transclude指令
+    1. 在模板中将指令的内部元素嵌入到模板中的某个位置。
+    2. transclude 这个选项有三种值：false，true，object
+    3. 默认是false。如果你需要这种功能的话，那么就需要将transclude设置为true或者{...}。如果将这个值设置为true或者{...}的话，那么就要配合angular的ng-transclude指令来进行使用
+        &lt;div ng-controller=&quot;demoCtrl&quot;&gt;
+            &lt;div tag&gt;原來的内容&lt;/div&gt;
+        &lt;/div&gt;
+        app.directive(&apos;tag&apos;,function(){
+            return {
+                restrict:&apos;ECMA&apos;,
+                transclude:true,
+                template:&apos;&lt;div&gt;hello  &lt;div ng-transclude&gt;&lt;/div&gt;&lt;/div&gt;&apos;
+            }
+        })
+    页面中的内容为：
+                指令中的内容
+                原來的内容
+</code></pre><h3 id="五、数据绑定丨"><a href="#五、数据绑定丨" class="headerlink" title="五、数据绑定丨"></a>五、数据绑定丨</h3><h4 id="一、-单向绑定："><a href="#一、-单向绑定：" class="headerlink" title="一、 单向绑定："></a>一、 单向绑定：</h4><pre><code>1. 在视图中使用绑定符号｛｛｝｝ 将控制器制造的数据模型显示；
+2. 也可以使用 ng-bind 指令，和｛｛｝｝符号的效果是一样的.
+3. 但是我们使用{{}}有可能会出现闪烁现行(当把angularJS文件的引入放在页面后面的时候)
+    1. 虽然｛｛｝｝符号和ng-bind指令作用是一样的.但是他们在效果上有一些些区别
+    2. 使用｛｛｝｝符号有可能会出现闪烁现行(当吧ng文件的引入放在页面后面的时候)
+    3. 原因：
+        览器先渲染html页面.遇到ng指令不认识,会原样输出，然后angularJS开始工作,渲染绑定数据，所以，中间有这么一个闪烁的过程.
+3. 解决闪烁问题
+    1.  将ng文件的引入放在head标签中.
+    2. 为标签添加1个ng-cloak指令.就可以解决.
+        ng-cloak的原理：
+        ng会自动的生成1段css代码,将这个标签隐藏.当数据绑定工作完成之后,再显示这个标签.
+    3. 将angularJS标签放最上面
+</code></pre><h4 id="二、数据双向绑定"><a href="#二、数据双向绑定" class="headerlink" title="二、数据双向绑定"></a>二、数据双向绑定</h4><pre><code>1. ng-model指令可以作用于表单元素
+2. 变量的值和表单元素的值是相互影响的
+
+     &lt;body ng-app&gt;
+          &lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;&quot; ng-model=&quot;val&quot;&gt;
+          &lt;h1&gt;｛｛val｝｝&lt;/h1&gt;
+      &lt;/body&gt;
+</code></pre><h3 id="六、jqlite"><a href="#六、jqlite" class="headerlink" title="六、jqlite"></a>六、jqlite</h3><pre><code>1.  angular全局对象有一个方法叫做element
+   可以将1个原生的dom对象转换为一个&quot;jq&quot;对象
+   如果页面上我们引入了jq库,那么返回的对象就是1个完整的jq对象.
+   如果页面上我们没有引入jq库,那么返回的就是1个jqlite对象.
+   jqlite对象: 是jQuery的一个子集 一个轻量级的版本
+               jqlite对象只提供jQuery最常用的方法.
+    自定义指令中：link：function（scope,element,attrs）{}   element直接被angularJS封装成了一个 jqlite对象 
+2. 在引入jq的时候,要放在ng的前面引入
+</code></pre><h3 id="七、作用域"><a href="#七、作用域" class="headerlink" title="七、作用域"></a>七、作用域</h3><pre><code>1. 页面上可以有多组MVC.
+2. 相互独立的控制器/视图,他们的$scope也是相互独立的.
+   并且$scope中的数据只能在与控制器相关联的视图中才可以访问.
+3. 视图之间是可以相互嵌套的.
+   这个时候,子视图中可以访问父视图中的数据.
+</code></pre><h3 id="八、过滤器"><a href="#八、过滤器" class="headerlink" title="八、过滤器"></a>八、过滤器</h3><pre><code>1. 过滤器
+   指对数据进行过滤(处理)
+   我们现在讲的过滤器,是用在视图中的.对原本要显示在视图中的数据进行过滤然后再显示.
+
+   过滤器的使用:
+   {{原本要显示的数据|过滤器名称:参数 :参数}}
+
+2. currency 货币过滤器.
+   功能: 对价格进行过滤
+   {{price|currency}}  默认在前面显示一个美刀符号.
+   {{price|currency:"￥"}} 自定义货币符号.
+   {{price|currency:"￥":2}} 自定义保留的小数的位数 四舍五入
+
+3. date过滤器 
+   功能: 对日期进行过滤
+   {{now|date}} 默认的格式是美国佬的格式.
+   {{now|date:"yyyy-MM-dd HH:mm:ss"}} 自定义时间的格式.
+   y: year 年. 
+   M: 月份
+   d: 几号.
+   H: 24小时制的小时
+   h: 12小时制的小时.
+   m: 分钟
+   s：秒.
+
+4. uppercase
+   lowercase
+   过滤器.
+
+5. limitTo过滤器
+   截取数组/字符串中指定位数的元素
+
+   {{arr|limitTo:n}}
+   n是1个正数的话,就显示前面n个.
+   n是1个负数的话,就显示后面n个.
+
+    {{arr|limitTo:n:m}}
+    当n是正数: 从第m个元素开始往后显示n个.
+    负数: 从第m个元素开始往前显示n个.
+
+6. number过滤器.
+   可以对数字进行指定位数的保留.
+   {{num|number:2}} 对数据进行指定位数的保留 四舍五入.
+
+7. json过滤器.
+   将1个对象转换为json字符串显示.
+   {{person|json}} 
+
+   当我们显示1个对象的时候 如果没有调json过滤器
+   ng会自动的帮助我们调这个过滤器.
+
+8. orderBy过滤器.
+   对数组中的元素进行排序.
+   {{stus|orderBy:"age"}} 对数组中的对象以age属性排序.默认是升序.
+   {{stus|orderBy:"age":true}} 自定义降序. true降序 false升序.
+
+   如果是1个基本数据类型的数组
+   {{arr|orderBy}} 默认升序.
+   {{arr|orderBy:null:true}} 指定降序.
+
+9. filter过滤器
+   从数组中筛选出符合条件的元素.
+
+   {{stus|filter:{age:16,gender:"男"} }}
+
+   从数组中筛选age-16  gender-男 的元素.
+
+10. 自定义过滤器
+    1. 自定义过滤器.
+       模块对象提供了一个filter方法.
+       功能: 允许我们自定义过滤器.
+       参数1:自定义过滤器的名称.
+       参数2:是1个回调函数.
+             这个回调函数要要求返回1个函数.
+             返回的这个函数在过滤器被调用的时候,会被自动执行.
+             这个返回的函数至少有1个参数data 代表原本要显示的数据.
+             函数内部对原本要显示的数据按照我们自己
+
+        app.filter(&quot;firstBig&quot;,function(){
+             return function(data){
+                return data[0].toUpperCase()+data.slice(1);
+             }  
+        });
+</code></pre><h3 id="九、服务"><a href="#九、服务" class="headerlink" title="九、服务"></a>九、服务</h3><pre><code>1. $interval 服务（和setInterval()）
+2. $timeout服务.
+    清除计时器： $interval/$timeout.cancel(id);
+3. $filter服务
+     var currency = $filter(&quot;currency&quot;);
+    var res =  currency(price,&quot;￥&quot;,2);
+
+    出现filter的地方：
+        1. 过滤器filter从数组中筛选符合条件的元素.
+               {{stus|filter:{name:"jack"} }}
+        2. 自定义过滤器
+            app.filter(&quot;firstBig&quot;,function(){
+                 return function(data){
+                    return data[0].toUpperCase()+data.slice(1);
+                 }  
+            });
+        3. $filter服务
+4. $log服务
+        $log.error(&quot;这是error输出的消息!&quot;); //错误格式的消息 红色
+        $log.log(&quot;这是log输出的消息!&quot;); //与console.log()没有差别
+        $log.info(&quot;这是info输出的消息&quot;);//与console.log()没有差别
+        $log.debug(&quot;这是debug输出的消息!&quot;);//与console.log()没有差别
+        $log.warn(&quot;这是warn输出的消息&quot;); //警告格式 黄色
+
+5. $http服务
+    1. get/post
+      $http({
+        url: 指定要请求的资源的路径.
+        method: 指定请求的方式 get/post 默认是get
+        params: {} 当请求方式是get的时候,发送的数据要以键值对的形式存储在这个对象中.
+        data: &quot;&quot; 字符串. 当请求的方式是post的时候,发送的数据要存储在这个属性中.
+        headers: {} 设置请求头.
+    }).then(function(){请求成功的回调函数},function(){请求失败的回调函数})
+
+    也可以这样写：
+
+        $http({
+
+            }).then(function(){
+            请求成功的回调函数
+            }).catch(function(){
+            请求失败的回调函数
+            })
+
+    当请求方式是post的时候,发送的数据的格式ng底层并没有帮我们转换.
+    所以,需要我们手动的加请求头转换.
+
+    通过链式编程的方式点1个then方法出来.
+    传入两个回调.
+    第1个回调:在请求成功的时候执行. 有1个参数response 代表服务器返回的数据。
+                                  response.data可以拿到服务器返回的真正的数据.
+    第2个回调:在请求失败的时候执行.
+
+    2. $http服务支持跨域.
+           只需要将method设置为jsonp就可以.
+         在发起跨域请求之前 需要设置一个跨域白名单.
+
+        app.config([&apos;$sceDelegateProvider&apos;, function ($sceDelegateProvider) {
+        // 设置跨域白名单
+        $sceDelegateProvider.resourceUrlWhitelist([&quot;https://api.asilu.com/weather/&quot;]);
+        }])
+
+        app.controller(&quot;demoCtrl&quot;, [&quot;$scope&quot;, &quot;$http&quot;, function ($scope, $http) {
+            $http({
+                url: &quot;https://api.asilu.com/weather/&quot;,
+                params: {
+                    city: &quot;深圳&quot;
+                },
+                method: &quot;jsonp&quot;
+            }).then(function (response) {
+                console.log(response.data);
+            });
+        }]);
+</code></pre><h3 id="十、-依赖注入"><a href="#十、-依赖注入" class="headerlink" title="十、 依赖注入"></a>十、 依赖注入</h3><pre><code>1. 行内式注入.
+   创建控制器的时候,第2个参数是1个数组.
+   数组前面的元素写上要注入到控制器中的服务的名称.
+   最后1个参数是1个回调函数. 这个参数写上形参.
+   服务通过形参按照顺序注入.
+
+   注意
+     前面的元素的服务的名称必须要保证已经存在.
+     形参的名字可以随意 但是建议和服务的名字保持一致.
+     注入是按照顺序注入的.
+
+
+2. 推断式注入.
+    app.controller(&quot;demoCtrl&quot;,function($scope,$log){
+        $scope.name =  &quot;jack&quot;;
+    });
+    第2个参数不需要写数组 不需要指定什么服务要注入
+    只需要将注入的服务写成形参.
+
+    要求形参的名字必须要和服务的名字保持一致.
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/frame/" rel="tag"># frame</a>
+          
+            <a href="/tags/angularJS/" rel="tag"># angularJS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/16/requireJS/" rel="next" title="requireJs">
+                <i class="fa fa-chevron-left"></i> requireJs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="http://img3.duitang.com/uploads/item/201405/24/20140524130307_Wv8Bv.thumb.700_0.jpeg"
+              alt="lisha" />
+          
+            <p class="site-author-name" itemprop="name">lisha</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、MVC模式"><span class="nav-number">1.</span> <span class="nav-text">一、MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、模块化"><span class="nav-number">2.</span> <span class="nav-text">二、模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、一些基本的内置指令"><span class="nav-number">3.</span> <span class="nav-text">三、一些基本的内置指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、自定义指令"><span class="nav-number">4.</span> <span class="nav-text">四、自定义指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、数据绑定丨"><span class="nav-number">5.</span> <span class="nav-text">五、数据绑定丨</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-单向绑定："><span class="nav-number">5.1.</span> <span class="nav-text">一、 单向绑定：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、数据双向绑定"><span class="nav-number">5.2.</span> <span class="nav-text">二、数据双向绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、jqlite"><span class="nav-number">6.</span> <span class="nav-text">六、jqlite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、作用域"><span class="nav-number">7.</span> <span class="nav-text">七、作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、过滤器"><span class="nav-number">8.</span> <span class="nav-text">八、过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、服务"><span class="nav-number">9.</span> <span class="nav-text">九、服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、-依赖注入"><span class="nav-number">10.</span> <span class="nav-text">十、 依赖注入</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lisha</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
