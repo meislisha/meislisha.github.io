@@ -905,7 +905,9 @@
 4. 单页面应用
     1. 原理：通过window.onhashchange事件监听到锚点的变化，进而可以实现为不同的锚点显示不同的视图，单页面应用就是基于这一原理实现的。
     2. angularjs中的路由: 就是基于这一原理实现的;
-5. 路由
+    3. iframe:伪单页应用
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">		&lt;button onclick=&quot;home()&quot;&gt;首页&lt;/button&gt; &lt;button onclick=&quot;upload()&quot;&gt;上传&lt;/button&gt;</div><div class="line">		    &lt;hr&gt;</div><div class="line">		&lt;iframe id=&quot;if1&quot; src=&quot;./home.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</div><div class="line"></div><div class="line"></div><div class="line">//js代码</div><div class="line">		function home() &#123;</div><div class="line">            document.getElementById(&quot;if1&quot;).src = &quot;./home.html&quot;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        function upload() &#123;</div><div class="line">            document.getElementById(&quot;if1&quot;).src = &quot;./04-ajax上传文件.html&quot;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<pre><code>5. 路由
     1. 在angularjs 1.2 这个版本之后，angular路由功能单独的成为了一个插件，所有要使用路由功能，应该要依赖注入
     2. 默认情况下,angularjs路由中的锚链接的值必须是以#!开头；
     3. 注意的细节:
@@ -1002,7 +1004,13 @@
 11. 最终生成1个视图
 
 12. 使用1个死循环,监视视图中的事件触发.
-</code></pre>
+</code></pre><h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>gulp的安装：需要两步：<br>    1.npm install gulp -g  先要全局安装<br>        gulp  -v  查看gulp版本，确认是否安装那成功</p>
+<pre><code>2. 还要在项目中本地安装
+    1.  npm install gulp --save
+</code></pre><h3 id="如何使用gulp做项目构建"><a href="#如何使用gulp做项目构建" class="headerlink" title="如何使用gulp做项目构建"></a>如何使用gulp做项目构建</h3><p>require(‘gulp’)  会自动在nodemodule是中的gulp找到</p>
+<p>s<br>bower init </p>
+<p>.gitignore   新建不成可以在后面加一个.</p>
+
           
         
       
@@ -2285,19 +2293,16 @@ CommonJS规范：nodeJS
 
 
 8.可以通过form表单向服务器发送数据    
+    1. get请求发送数据
     &lt;form action=&quot;jieshou.php&quot; method=&quot;get&quot;&gt;
         &lt;input type=&quot;text&quot; placeholder=&apos;请输入姓名&apos; name=&apos;userName&apos;&gt;
         &lt;input type=&quot;submit&quot;&gt;
     &lt;/form&gt;
-
-    &lt;form action=&quot;./postFIles.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
-      &lt;input type=&quot;file&quot; name=&apos;icon&apos;&gt;
-      &lt;br&gt;
-      &lt;input type=&quot;submit&quot;&gt;
-    &lt;/form&gt;
-    enctype 默认值是 application/x-www-form-urlencoded
-            提交文件 multipart/form-data
-    必须设置name属性，method=&apos;post&apos;、enctype
+    2. 上传文件必须使用post请求，但是会发生页面的跳转：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">//会发生跳转</div><div class="line">&lt;form action=&quot;./postFIles.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">     &lt;input type=&quot;file&quot; name=&apos;icon&apos;&gt;</div><div class="line">     &lt;br&gt;</div><div class="line">     &lt;input type=&quot;submit&quot;&gt;</div><div class="line">   &lt;/form&gt;</div><div class="line"></div><div class="line">//下面用ajax的方法上传文件不会发生跳转，且发送的数据格式是：Request Payload</div><div class="line"></div><div class="line">&lt;form  id=&quot;form&quot;&gt;</div><div class="line">    &lt;input type=&quot;file&quot; name=&apos;file&apos;&gt;</div><div class="line">    &lt;br&gt;</div><div class="line">    &lt;input type=&quot;button&quot; onclick=&apos;upload()&apos;&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">//js代码</div><div class="line"> function upload()&#123;</div><div class="line">       var data=new FormData(document.querySelector(&apos;#form&apos;));</div><div class="line">       var xhr=new XMLHttpRequest();</div><div class="line">       xhr.open(&apos;post&apos;,&apos;./php/saveFiles.php&apos;);</div><div class="line">       xhr.onload=function()&#123;</div><div class="line">           if(xhr.status==200)&#123;</div><div class="line">               console.log(xhr.responseText);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       xhr.send(data)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<pre><code>enctype 默认值是 application/x-www-form-urlencoded
+        提交文件 multipart/form-data
+必须设置name属性，method=&apos;post&apos;、enctype
 </code></pre><h3 id="三、ajax函數封裝"><a href="#三、ajax函數封裝" class="headerlink" title="三、ajax函數封裝"></a>三、ajax函數封裝</h3><ol>
 <li><p>get请求函数封装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function get(url, data, success) &#123;</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line">  if (data) &#123;</div><div class="line">    url += &apos;?&apos;;</div><div class="line">    url += data;</div><div class="line">  &#125;</div><div class="line">  xhr.open(&apos;get&apos;, url);</div><div class="line">  xhr.onreadystatechange = function () &#123;</div><div class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">      success(xhr.responseText);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  xhr.send(null);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -2714,3 +2719,4 @@ CommonJS规范：nodeJS
 
 </body>
 </html>
+<script type="text/javascript" src="/js/src/love.js"></script>

@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="ls-blog">
 <meta property="og:description" content="一、MVC模式1.我们将我们的代码分为三部分         M - Model 数据 数据实体,用来保存页面要展示的数据.         V - View 视图 负责显示数据的,一般其实就是指的html页面.         C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.     这3部分各司其职,分工合作,我">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-23T01:21:13.423Z">
+<meta property="og:updated_time" content="2017-09-23T11:58:51.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angualrJS">
 <meta name="twitter:description" content="一、MVC模式1.我们将我们的代码分为三部分         M - Model 数据 数据实体,用来保存页面要展示的数据.         V - View 视图 负责显示数据的,一般其实就是指的html页面.         C - Controller 控制器 控制整个业务逻辑,负责处理数据,比如数据的获取,以及数据的过滤，进而影响数据在视图上的展示.     这3部分各司其职,分工合作,我">
@@ -905,7 +905,9 @@
 4. 单页面应用
     1. 原理：通过window.onhashchange事件监听到锚点的变化，进而可以实现为不同的锚点显示不同的视图，单页面应用就是基于这一原理实现的。
     2. angularjs中的路由: 就是基于这一原理实现的;
-5. 路由
+    3. iframe:伪单页应用
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">		&lt;button onclick=&quot;home()&quot;&gt;首页&lt;/button&gt; &lt;button onclick=&quot;upload()&quot;&gt;上传&lt;/button&gt;</div><div class="line">		    &lt;hr&gt;</div><div class="line">		&lt;iframe id=&quot;if1&quot; src=&quot;./home.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</div><div class="line"></div><div class="line"></div><div class="line">//js代码</div><div class="line">		function home() &#123;</div><div class="line">            document.getElementById(&quot;if1&quot;).src = &quot;./home.html&quot;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        function upload() &#123;</div><div class="line">            document.getElementById(&quot;if1&quot;).src = &quot;./04-ajax上传文件.html&quot;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<pre><code>5. 路由
     1. 在angularjs 1.2 这个版本之后，angular路由功能单独的成为了一个插件，所有要使用路由功能，应该要依赖注入
     2. 默认情况下,angularjs路由中的锚链接的值必须是以#!开头；
     3. 注意的细节:
@@ -1002,7 +1004,13 @@
 11. 最终生成1个视图
 
 12. 使用1个死循环,监视视图中的事件触发.
-</code></pre>
+</code></pre><h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>gulp的安装：需要两步：<br>    1.npm install gulp -g  先要全局安装<br>        gulp  -v  查看gulp版本，确认是否安装那成功</p>
+<pre><code>2. 还要在项目中本地安装
+    1.  npm install gulp --save
+</code></pre><h3 id="如何使用gulp做项目构建"><a href="#如何使用gulp做项目构建" class="headerlink" title="如何使用gulp做项目构建"></a>如何使用gulp做项目构建</h3><p>require(‘gulp’)  会自动在nodemodule是中的gulp找到</p>
+<p>s<br>bower init </p>
+<p>.gitignore   新建不成可以在后面加一个.</p>
+
       
     </div>
     
@@ -1181,7 +1189,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、MVC模式"><span class="nav-number">1.</span> <span class="nav-text">一、MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、模块化"><span class="nav-number">2.</span> <span class="nav-text">二、模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、一些基本的内置指令"><span class="nav-number">3.</span> <span class="nav-text">三、一些基本的内置指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、自定义指令"><span class="nav-number">4.</span> <span class="nav-text">四、自定义指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、数据绑定丨"><span class="nav-number">5.</span> <span class="nav-text">五、数据绑定丨</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-单向绑定："><span class="nav-number">5.1.</span> <span class="nav-text">一、 单向绑定：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、数据双向绑定"><span class="nav-number">5.2.</span> <span class="nav-text">二、数据双向绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、jqlite"><span class="nav-number">6.</span> <span class="nav-text">六、jqlite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、作用域"><span class="nav-number">7.</span> <span class="nav-text">七、作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、过滤器"><span class="nav-number">8.</span> <span class="nav-text">八、过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、服务"><span class="nav-number">9.</span> <span class="nav-text">九、服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、-依赖注入"><span class="nav-number">10.</span> <span class="nav-text">十、 依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、自定义服务"><span class="nav-number">11.</span> <span class="nav-text">十一、自定义服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二、配置块"><span class="nav-number">12.</span> <span class="nav-text">十二、配置块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三、运行快-让服务脱离控制器执行"><span class="nav-number">13.</span> <span class="nav-text">十三、运行快: 让服务脱离控制器执行.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四、SPA和路由"><span class="nav-number">14.</span> <span class="nav-text">十四、SPA和路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#angularjs-执行步骤"><span class="nav-number">15.</span> <span class="nav-text">angularjs 执行步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、MVC模式"><span class="nav-number">1.</span> <span class="nav-text">一、MVC模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、模块化"><span class="nav-number">2.</span> <span class="nav-text">二、模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、一些基本的内置指令"><span class="nav-number">3.</span> <span class="nav-text">三、一些基本的内置指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、自定义指令"><span class="nav-number">4.</span> <span class="nav-text">四、自定义指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、数据绑定丨"><span class="nav-number">5.</span> <span class="nav-text">五、数据绑定丨</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-单向绑定："><span class="nav-number">5.1.</span> <span class="nav-text">一、 单向绑定：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、数据双向绑定"><span class="nav-number">5.2.</span> <span class="nav-text">二、数据双向绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、jqlite"><span class="nav-number">6.</span> <span class="nav-text">六、jqlite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、作用域"><span class="nav-number">7.</span> <span class="nav-text">七、作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、过滤器"><span class="nav-number">8.</span> <span class="nav-text">八、过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、服务"><span class="nav-number">9.</span> <span class="nav-text">九、服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、-依赖注入"><span class="nav-number">10.</span> <span class="nav-text">十、 依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、自定义服务"><span class="nav-number">11.</span> <span class="nav-text">十一、自定义服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十二、配置块"><span class="nav-number">12.</span> <span class="nav-text">十二、配置块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十三、运行快-让服务脱离控制器执行"><span class="nav-number">13.</span> <span class="nav-text">十三、运行快: 让服务脱离控制器执行.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十四、SPA和路由"><span class="nav-number">14.</span> <span class="nav-text">十四、SPA和路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#angularjs-执行步骤"><span class="nav-number">15.</span> <span class="nav-text">angularjs 执行步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp"><span class="nav-number">16.</span> <span class="nav-text">gulp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用gulp做项目构建"><span class="nav-number">17.</span> <span class="nav-text">如何使用gulp做项目构建</span></a></li></ol></div>
             
 
           </div>
@@ -1375,3 +1383,4 @@
 
 </body>
 </html>
+<script type="text/javascript" src="/js/src/love.js"></script>
