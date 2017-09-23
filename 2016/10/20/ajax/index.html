@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,14 +95,18 @@
 
 
 
+<meta name="description" content="一、HTTP协议1. 请求报文 Request     1. 请求有客户端发出,主要有三个组成部分:请求行,请求头,请求主体         1. 请求头：浏览器的一些信息,以及一些想要告诉给服务器的信息xhr.setRequestHeader(&amp;quot;Content-type&amp;quot;, &amp;quot;application/x-www-form-urlencoded&amp;quot;);">
 <meta name="keywords" content="技术,ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax">
 <meta property="og:url" content="http://yoursite.com/2016/10/20/ajax/index.html">
 <meta property="og:site_name" content="ls-blog">
-<meta property="og:updated_time" content="2017-09-20T08:33:17.855Z">
+<meta property="og:description" content="一、HTTP协议1. 请求报文 Request     1. 请求有客户端发出,主要有三个组成部分:请求行,请求头,请求主体         1. 请求头：浏览器的一些信息,以及一些想要告诉给服务器的信息xhr.setRequestHeader(&amp;quot;Content-type&amp;quot;, &amp;quot;application/x-www-form-urlencoded&amp;quot;);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-21T00:57:37.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax">
+<meta name="twitter:description" content="一、HTTP协议1. 请求报文 Request     1. 请求有客户端发出,主要有三个组成部分:请求行,请求头,请求主体         1. 请求头：浏览器的一些信息,以及一些想要告诉给服务器的信息xhr.setRequestHeader(&amp;quot;Content-type&amp;quot;, &amp;quot;application/x-www-form-urlencoded&amp;quot;);">
 
 
 
@@ -110,7 +114,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -118,7 +122,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -150,7 +154,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -198,7 +202,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -262,9 +286,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-20T16:11:46+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-20T16:11:46+08:00">
                 2016-10-20
               </time>
             
@@ -283,7 +307,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -294,7 +318,7 @@
 
                 
                 
-                  . 
+                  ， 
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -335,7 +359,177 @@
       
 
       
-        
+        <h3 id="一、HTTP协议"><a href="#一、HTTP协议" class="headerlink" title="一、HTTP协议"></a>一、HTTP协议</h3><pre><code>1. 请求报文 Request
+    1. 请求有客户端发出,主要有三个组成部分:请求行,请求头,请求主体
+        1. 请求头：浏览器的一些信息,以及一些想要告诉给服务器的信息xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+        2. 请求行：请求的url,请求的方法xhr.open();
+        3. 请求主体：提交给服务器的数据
+2. 响应报文  Response
+    1. 响应报文是服务器发回给客户端的.组成部分有状态行,响应头,响应主体
+        1. 响应头：服务器的一些信息，服务器想要告诉给浏览器的一些信息
+        2. 状态行：请求是否成功;常见状态码 200 404
+        3. 响应主体
+</code></pre><h3 id="二、Ajax-不刷新页面的情况下-发送请求报文"><a href="#二、Ajax-不刷新页面的情况下-发送请求报文" class="headerlink" title="二、Ajax(不刷新页面的情况下 发送请求报文)"></a>二、Ajax(不刷新页面的情况下 发送请求报文)</h3><pre><code>1. Asynchronous Javascript And XML（异步JavaScript和XML）,他并不是凭空出现的新技术,而是对于现有技术的结合:核心是js对象XMLHttpRequest
+2.在浏览器中,我们也能够不刷新页面,通过ajax的方式去获取一些新的内容,类似网页有微博,朋友圈,邮箱等
+3. 是一种异步请求的技术.页面的局部刷新.
+   整个页面刷新.用户体验不好.
+   ajax刷新，可以按需更新视图.
+4. ajax使用的是HTTP请求,一个完整的HTTP请求需要什么？
+   1. 请求的网址,方法get/post
+   2. 提交请求内容数据,请求主体等
+   3. 接收响应回来的内容
+    五步使用法:
+        1. 建立XMLHTTPRequest对象
+        2. 注册回调函数
+               当服务器回应我们了,我们想要执行什么逻辑
+        3. 使用open方法设置和服务器端交互的基本信息
+               设置提交的网址,数据,post提交的一些额外内容
+        4. 设置发送的数据，开始和服务器端交互
+                发送数据
+        5. 更新界面
+               在注册的回调函数中,获取返回的数据,更新界面
+5. get请求
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//1.创建对象</div><div class="line">var xhr = new XMLHttpRequest();</div><div class="line"></div><div class="line">//2.设置请求行(get请求数据写在url后面)</div><div class="line">xhr.open(&apos;get&apos;,&apos;getData.php?name=rose&amp;skill=swim&apos;);</div><div class="line"></div><div class="line">//3.设置请求头(get请求可以省略,post不发送数据也可以省略)</div><div class="line">// xhr.setRequestHeader()</div><div class="line"></div><div class="line">//3.5注册回调函数</div><div class="line">xhr.onload = function()&#123;</div><div class="line">  // 获取数据</div><div class="line">  console.log(xhr.responseText);</div><div class="line">  // 修改页面的dom元素</div><div class="line">  document.querySelector(&apos;h3&apos;).innerHTML = xhr.responseText;</div><div class="line">&#125;</div><div class="line">//4.请求主体发送(get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接为空或者写null)</div><div class="line">xhr.send(null);</div></pre></td></tr></table></figure>
+<pre><code>6. post请求
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//1.创建对象</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line"></div><div class="line">  //2.设置请求行(get请求数据写在url后面)</div><div class="line">  xhr.open(&apos;post&apos;,&apos;postData.php&apos;);</div><div class="line"></div><div class="line">  //3.设置请求头(get请求可以省略,post不发送数据也可以省略)</div><div class="line">  // 可以在 w3c的 ajax分类中 w3c的 form表单的 enctype中 看到 这个值</div><div class="line">  xhr.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">  //3.5注册回调函数</div><div class="line">  xhr.onload = function()&#123;</div><div class="line">    console.log(xhr.responseText);</div><div class="line">  &#125;</div><div class="line">  //4.请求主体发送(get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接为空或者写null)</div><div class="line">  // post请求发送数据 写在send中</div><div class="line">  // key=value&amp;key2=value2</div><div class="line">  xhr.send(&apos;name = 西兰花&amp;friend = 鸡蛋&apos;);</div></pre></td></tr></table></figure>
+<pre><code>7.浏览器向服务器发送数据的时候.发送的数据是分格式的.
+
+   1. 当我们以get方式向服务器发送数据的时候,发送的数据的格式:Query String
+   2. 当我们以post方式向服务器发送数据的时候,发送的数据的格式默认是: Request Payload
+   3. 如果我们以post方式向服务器发送数据,发送的数据的格式是Request Payload, 服务器绝大多数情况下不会解析接收.
+        post: 服务器会解析接收form data格式的数据.
+        所以,为了服务器可以正常接收我们post过去的数据.
+        我们就要将默认的Request Payload格式的数据转换为服务器认识的form data格式的.
+   4.如何默认的Request Payload格式的数据转换为服务器认识的form data格式:
+       设置请求头： xhr.setRequestHeader(&quot;content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+       表面上看是设置请求头.但是底层做的事情:将post方式发送的数据由默认的Request Payload格式转换为form data
+        Request Payload用在什么地方?（用在传文件的时候.）
+   5. 总结:
+       5.1 向服务器发送的数据是分格式的.
+       5.2 以get方式发送的数据的格式是:Query String.
+        服务器可以解析接收.
+       5.3 以post方式发送的数据,其格式默认是Request Payload。
+            服务器大多数情况下,是不会解析接收这种格式的.
+            所以我们需要将数据的格式转换为服务器识别的form data格式
+            xhr.setRequestHeader(&quot;content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+
+
+8.可以通过form表单向服务器发送数据    
+    &lt;form action=&quot;jieshou.php&quot; method=&quot;get&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&apos;请输入姓名&apos; name=&apos;userName&apos;&gt;
+        &lt;input type=&quot;submit&quot;&gt;
+    &lt;/form&gt;
+
+    &lt;form action=&quot;./postFIles.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+      &lt;input type=&quot;file&quot; name=&apos;icon&apos;&gt;
+      &lt;br&gt;
+      &lt;input type=&quot;submit&quot;&gt;
+    &lt;/form&gt;
+    enctype 默认值是 application/x-www-form-urlencoded
+            提交文件 multipart/form-data
+    必须设置name属性，method=&apos;post&apos;、enctype
+</code></pre><h3 id="三、ajax函數封裝"><a href="#三、ajax函數封裝" class="headerlink" title="三、ajax函數封裝"></a>三、ajax函數封裝</h3><ol>
+<li><p>get请求函数封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function get(url, data, success) &#123;</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line">  if (data) &#123;</div><div class="line">    url += &apos;?&apos;;</div><div class="line">    url += data;</div><div class="line">  &#125;</div><div class="line">  xhr.open(&apos;get&apos;, url);</div><div class="line">  xhr.onreadystatechange = function () &#123;</div><div class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">      success(xhr.responseText);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  xhr.send(null);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>post请求函数封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function post(url, data, success) &#123;</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line">  xhr.open(&apos;post&apos;, url);</div><div class="line">  if (data) &#123;</div><div class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">  &#125;</div><div class="line">  xhr.onreadystatechange = function () &#123;</div><div class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">      console.log(xhr.responseText);</div><div class="line">      success(xhr.responseText);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  xhr.send(data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>ajax函数封装1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function ajax_test(url, type, data, success) &#123;</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line">  // 如果是get 并且有数据</div><div class="line">  if (type == &apos;get&apos; &amp;&amp; data) &#123;</div><div class="line">    url += &apos;?&apos;;</div><div class="line">    url += data;</div><div class="line">    data = null; // 这样最后直接send data即可 </div><div class="line">  &#125;</div><div class="line">  xhr.open(type, url);</div><div class="line">  // post请求 并且有数据</div><div class="line">  if (type == &apos;post&apos; &amp;&amp; data) &#123;</div><div class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">  &#125;</div><div class="line">  xhr.onreadystatechange = function () &#123;</div><div class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">      success(xhr.responseText);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  xhr.send(data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>pajax函数封装2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">function ajax(option) &#123;</div><div class="line">  var xhr = new XMLHttpRequest();</div><div class="line">  // 如果是get 并且有数据</div><div class="line">  if (option.type == &apos;get&apos; &amp;&amp; option.data) &#123;</div><div class="line">    option.url += &apos;?&apos;;</div><div class="line">    option.url += option.data;</div><div class="line">    option.data = null; // 这样最后直接send data即可 </div><div class="line">  &#125;</div><div class="line">  xhr.open(option.type, option.url);</div><div class="line">  // post请求 并且有数据</div><div class="line">  if (option.type == &apos;post&apos; &amp;&amp; option.data) &#123;</div><div class="line">    xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);</div><div class="line">  &#125;</div><div class="line">  xhr.onreadystatechange = function () &#123;</div><div class="line">    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">      // option.success(xhr.responseText);</div><div class="line">      // console.log(xhr.getResponseHeader(&apos;Content-Type&apos;));</div><div class="line">      var type = xhr.getResponseHeader(&apos;Content-Type&apos;);</div><div class="line">      // 是否为json</div><div class="line">      if (type.indexOf(&apos;json&apos;) != -1) &#123;</div><div class="line">        option.success(JSON.parse(xhr.responseText));</div><div class="line">      &#125;</div><div class="line">      // 是否为xml</div><div class="line">      else if (type.indexOf(&apos;xml&apos;) != -1) &#123;</div><div class="line">        option.success(xhr.responseXML);</div><div class="line">      &#125;</div><div class="line">      // 普通字符串</div><div class="line">      else &#123;</div><div class="line">        option.success(xhr.responseText);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  xhr.send(option.data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="四、Json"><a href="#四、Json" class="headerlink" title="四、Json"></a>四、Json</h2><pre><code>1. 特点
+    1. 特点
+        1. JSON是一种数据的格式
+        2. JSON跟编程语言没有关系
+        3. JSON的载体是字符串
+        4. 基本上所有的编程语言都支持JSON
+        5. 语法简洁 基本上所有的编程语言 都提供了对应的方法 来解析JSON
+        6. JSON格式的字符串 转化完毕之后 会变成 数组 对象
+    2. JSON的写法 -- 用来表示对象
+        对象使用 {} 
+        属性名 必须使用 &quot;&quot; 包裹
+        如果属性值是数值 可以不使用双引号
+2. JSON.parse()方法:将JSON字符串转化为JavaScript对象
+3. JSON.stringify()方法:将JavaScript对象,转化为JSON字符串  
+4.  header(&apos;content-type:application/json;charset=utf-8&apos;);//php中设置返回的是JSON  
+</code></pre><h3 id="五、JQUERY中ajax"><a href="#五、JQUERY中ajax" class="headerlink" title="五、JQUERY中ajax"></a>五、JQUERY中ajax</h3><pre><code>1. $.ajax({url: ,type: ,data: ,success:function(){},
+
+        })
+2. success
+    在请求成功才会触发
+    如果出现 服务器告诉浏览器返回的类型 跟 jQuery内部实际转换的类型不匹配 会无法触发
+        error:function(XMLHttpRequest, textStatus,     errorThrown){}
+            当请求出现问题 会触发这个回调函数
+      complete
+        请求完成会触发
+3. dataType:&apos;json&apos;//若后台没有设置头部，没有帮我们转换成json数据，可以通过dataType手动设置转换成json数据
+4. dataType:&apos;xml&apos;
+5. 如果很多个按钮都要设置点击时开启遮罩层，完成后关闭遮罩层；可以document
+    就不用每次ajax都调用这两句代码，在外面呢写一次就好了；
+    1. $(document).ajaxStart(function(){}//离线文档写错了
+        $(&apos;.cover&apos;).show（）)
+    2. $(document).ajaxComplete(function(){}
+        $(&apos;.cover&apos;).hide（）)
+6. $.ajax({})中可以人为的指定 返回的数据格式，&apos;json&apos;  &apos;xml&apos;;
+</code></pre><h2 id="六、同源、跨域"><a href="#六、同源、跨域" class="headerlink" title="六、同源、跨域"></a>六、同源、跨域</h2><pre><code>1.  同源
+    http://127.0.0.1/2017-8-17/09.waterFall_ajax/
+    http://127.0.0.1/2017-8-17/09.waterFall_ajax/api/waterFall.php
+            协议名:http
+            地址一样:
+            端口号:默认是80端口
+    上述三个条件一样 称之为 同源
+2. 不同源
+    协议,地址,端口号 有一个不一样 称之为不同源
+3. 跨域
+    不同源的网站之前 互相发送请求
+    默认情况下,ajax它是不允许发起跨域请求的;
+    跨域解决方案：反向代理，服务器设置，jsonp
+4. script标签.
+
+   4.1 引入外部的js文件.
+       script标签的src属性:将外部的js文件引入,并且将其中的代码执行.
+
+   4.2 script标签的src属性,可以请求任意类型的文件.
+       浏览器都会将请求回来的数据作为js代码执行.
+       如果可以执行 就OK
+       如果不可以执行 就报错.
+
+   4.3 script标签的src属性天然支持跨域.
+</code></pre><h3 id="七、跨域解决方案"><a href="#七、跨域解决方案" class="headerlink" title="七、跨域解决方案"></a>七、跨域解决方案</h3><pre><code>1.Cors:cross origin resource sharing:H5新增的跨域方法,服务器设置允许跨域即，通过控制网站 B 的相应头部字段来实现的，主要就是通过设置相应头中的 Access-Control-Allow-Origin 字段
+2. json with padding  利用sscript 的src属性的支持跨域访问 
+    2.1. jsonP的原理：
+         利用的是script标签的src属性  支持跨域访问
+    2.2. script标签的后面写上 需要请求的页面，发送了一个方法的名字到服务器
+    2.3. 服务器接收到名字之后，拼接一个方法的调用，在参数中，传入了需要给浏览器的数据；
+    2.4. 返回给浏览器，浏览器把他当做js解析
+        1. 没有跨域问题了
+        2. 从服务器获取到了数据；
+    2.55. jQuery 的JSONP的原理是  动态了的创建了一个script标签  利用src发送请求  获取数据
+        1. 回掉函数的建明叫做callback
+        2. 跟ajax有没有关系=&gt;没有关系 
+    2.6 jsonp的特点
+        1.必须要服务器支持才可以.    
+            必须要浏览器和服务器相互打好配合才可以.
+        2. jsonp只支持get     
+    2.7 jsonp函数封装   
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">//jsonp函数封装1</div><div class="line">function jsonp(option)&#123;</div><div class="line">        var url=option.url;</div><div class="line">        url+=&apos;?&apos;;</div><div class="line">        for(var k in option.params)&#123;</div><div class="line">            url+=k +&apos;=&apos;+ option.params[k]+&apos;&amp;&apos;;</div><div class="line">        &#125;</div><div class="line">        var name=&apos;heimatag&apos;+id++;</div><div class="line">        window[name]=option.callback;</div><div class="line">        url+=&apos;callback=&apos;+name;</div><div class="line">        var script=document.createElement(&apos;script&apos;);</div><div class="line">        script.src=url;</div><div class="line">        document.body.appendChild(script);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//函数封装2</div><div class="line"> function jsonp(option)&#123;</div><div class="line">        var arr=[option.url];</div><div class="line">        arr.push(&apos;?&apos;);</div><div class="line">        for(var k in option.params)&#123;</div><div class="line">            arr.push(k+&apos;=&apos;+option.params[k]+&apos;&amp;&apos;);</div><div class="line">        &#125;</div><div class="line">        var callname=&apos;mycallback&apos;+Date.now();</div><div class="line">        arr.push(&apos;callback=&apos;+callname);</div><div class="line">        var script=document.createElement(&apos;script&apos;);</div><div class="line">        script.src=arr.join(&apos;&apos;);</div><div class="line">        document.body.appendChild(script);</div><div class="line">        window[callname]=function(data)&#123;</div><div class="line">            option.callback(data);</div><div class="line">            document.body.removeChild(script);</div><div class="line">            delete window[callname];</div><div class="line">        &#125;</div><div class="line">    &#125;  </div><div class="line">     jsonp(&#123;</div><div class="line">            url:&apos;https://api.asilu.com/weather/&apos;,</div><div class="line">            params:&#123;</div><div class="line">                city:&apos;深圳&apos;</div><div class="line">            &#125;,</div><div class="line">            callback:function(data)&#123;</div><div class="line">                console.log(data);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+<pre><code>3.反向代理
+</code></pre><h2 id="八、HTTP协议"><a href="#八、HTTP协议" class="headerlink" title="八、HTTP协议"></a>八、HTTP协议</h2><pre><code>1. 请求报文 Request
+    1. 请求有客户端发出,主要有三个组成部分:请求行,请求头,请求主体
+        1. 请求头：浏览器的一些信息,以及一些想要告诉给服务器的信息xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+        2. 请求行：请求的url,请求的方法xhr.open();
+        3. 请求主体：提交给服务器的数据
+2. 响应报文  Response
+    1. 响应报文是服务器发回给客户端的.组成部分有状态行,响应头,响应主体
+        1. 响应头：服务器的一些信息，服务器想要告诉给浏览器的一些信息
+        2. 状态行：请求是否成功;常见状态码 200 404
+        3. 响应主体
+</code></pre>
       
     </div>
     
@@ -427,8 +621,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -447,7 +650,7 @@
               <a href="/archives">
             
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -458,7 +661,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">分类</span>
               
             </div>
           
@@ -469,7 +672,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -493,6 +696,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">一、HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Ajax-不刷新页面的情况下-发送请求报文"><span class="nav-number">2.</span> <span class="nav-text">二、Ajax(不刷新页面的情况下 发送请求报文)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、ajax函數封裝"><span class="nav-number">3.</span> <span class="nav-text">三、ajax函數封裝</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Json"><span class="nav-number"></span> <span class="nav-text">四、Json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#五、JQUERY中ajax"><span class="nav-number">1.</span> <span class="nav-text">五、JQUERY中ajax</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、同源、跨域"><span class="nav-number"></span> <span class="nav-text">六、同源、跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#七、跨域解决方案"><span class="nav-number">1.</span> <span class="nav-text">七、跨域解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、HTTP协议"><span class="nav-number"></span> <span class="nav-text">八、HTTP协议</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -520,11 +739,11 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
 
 
         
